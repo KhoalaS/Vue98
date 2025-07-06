@@ -1,20 +1,25 @@
 <script setup lang="ts">
-import { computed } from 'vue'
+import { useElementSize } from '@vueuse/core'
+import { computed, useTemplateRef } from 'vue'
 
-// 1 bar = approx 3.85%
+const progressBar = useTemplateRef('progress-bar')
+const { width } = useElementSize(progressBar)
 
 const model = defineModel<number>({
   default: 0,
 })
 
 const barCount = computed(() => {
-  return Math.floor(model.value / 3.85)
+  const progress = Math.floor(width.value * (model.value / 100))
+  return Math.floor(progress / 10)
 })
 </script>
 <template>
   <main>
-    <div id="progress" class="inv-border flex gap-[2px] mb-1 h-4 items-center py-[1px] px-[2px]">
-      <div :key="i" v-for="i in barCount" class="w-2 bg-[#000080] h-3"></div>
+    <div class="relative inv-border py-[1px] px-[2px] mb-1 z-10">
+      <div ref="progress-bar" class="relative flex gap-[2px] h-4 items-center overflow-hidden z-0">
+        <div :key="i" v-for="i in barCount" class="w-2 bg-[#000080] h-3 shrink-0"></div>
+      </div>
     </div>
   </main>
 </template>

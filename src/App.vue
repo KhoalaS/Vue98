@@ -4,7 +4,7 @@ import ConsolePromptIcon from './lib/components/icons/ConsolePromptIcon.vue'
 import ProgressbarComponent from './lib/components/progress/ProgressbarComponent.vue'
 import WindowComponent from './lib/components/window/WindowComponent.vue'
 
-const barPercent = ref(60)
+const barPercent = ref(100)
 </script>
 
 <template>
@@ -16,6 +16,7 @@ const barPercent = ref(60)
         <ConsolePromptIcon></ConsolePromptIcon>
       </template>
       <template #body>
+        <button @click="barPercent++">plus</button>
         <ProgressbarComponent v-model="barPercent"></ProgressbarComponent>
       </template>
     </WindowComponent>
