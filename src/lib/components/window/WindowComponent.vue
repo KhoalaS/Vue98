@@ -9,7 +9,12 @@ defineProps<{
 <template>
   <main class="window">
     <div class="title-bar">
-      <div class="title-bar-text">{{ title }}</div>
+      <div class="title-bar-text flex gap-[4px]">
+        <slot name="title-icon"></slot>
+        <span>
+          {{ title }}
+        </span>
+      </div>
       <div class="title-bar-controls">
         <button :key="control" v-for="control in controls" :aria-label="control"></button>
       </div>

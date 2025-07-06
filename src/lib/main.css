@@ -1,1 +1,30 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+.taskbar {
+  box-shadow:
+    inset 0px 1px #fff,
+    inset 0px 2px #dfdfdf;
+}
+#start {
+  padding: 0px 4px;
+}
+.task {
+  padding-left: 4px !important;
+  min-width: 94px;
+}
+
+.thingy {
+  box-shadow:
+    inset -1px -1px #7f7f7f,
+    inset 1px 1px #fff;
+}
+
+.inv-border {
+  box-shadow:
+    inset -1px -1px #fff,
+    inset 1px 1px #7f7f7f;
+}
+
+.status-bar {
+  min-width: 64px;
+}
