@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
+    "@vueuse/core": "^13.5.0",
     "98.css": "^0.1.21",
     "tailwindcss": "^4.1.11",
     "vite-plugin-dts": "^4.5.4",
