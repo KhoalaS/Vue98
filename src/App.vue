@@ -3,6 +3,12 @@ import { ref } from 'vue'
 import ConsolePromptIcon from './lib/components/icons/ConsolePromptIcon.vue'
 import ProgressbarComponent from './lib/components/progress/ProgressbarComponent.vue'
 import WindowComponent from './lib/components/window/WindowComponent.vue'
+import TaskbarComponent from './lib/components/taskbar/TaskbarComponent.vue'
+import TaskbarGroup from './lib/components/taskbar/TaskbarGroup.vue'
+import TaskbarDivider from './lib/components/taskbar/TaskbarDivider.vue'
+import StatusBlock from './lib/components/taskbar/StatusBlock.vue'
+import StartButton from './lib/components/taskbar/StartButton.vue'
+import TabComponent from './lib/components/taskbar/TabComponent.vue'
 
 const barPercent = ref(100)
 </script>
@@ -20,10 +26,15 @@ const barPercent = ref(100)
         <ProgressbarComponent v-model="barPercent"></ProgressbarComponent>
       </template>
     </WindowComponent>
-    <div class="w-[50%]">
-      <div class="progress-indicator segmented">
-        <span class="progress-indicator-bar" style="width: 40%" />
-      </div>
-    </div>
+
+    <TaskbarComponent>
+      <StartButton></StartButton>
+      <TaskbarGroup>
+        <TabComponent label="Console"></TabComponent>
+      </TaskbarGroup>
+
+      <TaskbarDivider class="ml-auto"></TaskbarDivider>
+      <StatusBlock></StatusBlock>
+    </TaskbarComponent>
   </main>
 </template>

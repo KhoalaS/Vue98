@@ -1,5 +1,9 @@
 @import 'tailwindcss';
 
+@theme {
+  --font-display: 'Pixelated MS Sans Serif', 'Arial';
+}
+
 .taskbar {
   box-shadow:
     inset 0px 1px #fff,
