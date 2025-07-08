@@ -5,5 +5,5 @@ const { size = 24 } = defineProps<{
 }>()
 </script>
 <template>
-  <img :height="size" :width="size" :src="image" />
+  <img style="image-rendering: pixelated" :height="size" :width="size" :src="image" />
 </template>
