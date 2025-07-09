@@ -3,3 +3,38 @@
 @theme {
   --font-display: 'Pixelated MS Sans Serif', 'Arial';
 }
+
+@font-face {
+  font-family: 'MS Sans';
+  src: url('/ms_sans_serif.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Pixelated MS Sans Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url(ms_sans_serif.woff) format('woff');
+  src: url(ms_sans_serif.woff2) format('woff2');
+}
+@font-face {
+  font-family: 'Pixelated MS Sans Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: url(ms_sans_serif_bold.woff) format('woff');
+  src: url(ms_sans_serif_bold.woff2) format('woff2');
+}
+
+:root {
+  --desktop-bg-color: #57a8a8;
+  --main-bg-color: #c0c7c8;
+  --border-gray: #87888f;
+  font-family: 'Pixelated MS Sans Serif', Arial;
+}
+
+body {
+  height: 100vh;
+}
+
+#app {
+  height: 100%;
+}

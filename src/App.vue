@@ -9,12 +9,13 @@ import TaskbarDivider from './lib/components/taskbar/TaskbarDivider.vue'
 import StatusBlock from './lib/components/taskbar/StatusBlock.vue'
 import StartButton from './lib/components/taskbar/StartButton.vue'
 import TabComponent from './lib/components/taskbar/TabComponent.vue'
+import WButton from './lib/components/WButton.vue'
 
 const barPercent = ref(100)
 </script>
 
 <template>
-  <main>
+  <main style="padding: 12px; background-color: var(--desktop-bg-color); height: 100%">
     <button>Test</button>
     <input type="text" />
     <WindowComponent title="Hello" :controls="['Minimize', 'Close']" class="w-[200px]">
@@ -36,5 +37,6 @@ const barPercent = ref(100)
       <TaskbarDivider class="ml-auto"></TaskbarDivider>
       <StatusBlock></StatusBlock>
     </TaskbarComponent>
+    <WButton>helo</WButton>
   </main>
 </template>
