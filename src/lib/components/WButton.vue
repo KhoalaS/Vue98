@@ -21,7 +21,6 @@ const emit = defineEmits<{
   position: absolute;
   top: 0;
   left: 0;
-  inset: 4px;
 }
 button:active > .dash {
   display: block;
@@ -30,14 +29,19 @@ button:active > .dash {
 button:active > .label {
   position: relative;
   top: 1px;
-  left: 1px;
-}
-
-.nudge {
 }
 
 .dash.right {
-  inset: 4px 3px 4px 4px;
+  inset: 3px 3px 4px 4px;
+}
+.dash.left {
+  inset: 3px 0px 4px 3px;
+}
+.dash.top {
+  inset: 3px 4px 4px 3px;
+}
+.dash.bottom {
+  inset: 4px 3px 3px 3px;
 }
 .dash.top::before {
   box-sizing: border-box;
@@ -55,7 +59,6 @@ button:active > .label {
     black 2px
   );
 }
-
 .dash.left::before {
   content: '';
   position: absolute;
@@ -71,7 +74,6 @@ button:active > .label {
     black 2px
   );
 }
-
 .dash.right::before {
   content: '';
   position: absolute;
@@ -86,10 +88,6 @@ button:active > .label {
     black 1px,
     black 2px
   );
-}
-
-.dash.bottom {
-  inset: 4px 4px 3px 4px;
 }
 
 .dash.bottom::before {
@@ -108,6 +106,7 @@ button:active > .label {
     black 2px
   );
 }
+
 button {
   all: unset;
   position: relative;
@@ -128,13 +127,11 @@ button {
 }
 
 button:active {
-  padding-top: 1px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
   box-shadow:
-    inset 0px 1px black,
-    inset 1px 0px black,
-    inset 0px 2px var(--border-gray),
-    inset 2px 0px var(--border-gray),
-    inset 2px 0px var(--border-gray),
+    inset 0px 1px var(--border-gray),
+    inset 1px 0px var(--border-gray),
     inset -1px -1px var(--border-gray);
 }
 </style>

@@ -37,6 +37,6 @@ const barPercent = ref(100)
       <TaskbarDivider class="ml-auto"></TaskbarDivider>
       <StatusBlock></StatusBlock>
     </TaskbarComponent>
-    <WButton>helo</WButton>
+    <WButton>OK</WButton>
   </main>
 </template>
