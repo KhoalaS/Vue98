@@ -1,13 +1,14 @@
 <script setup lang="ts"></script>
 <template>
   <div class="flex items-center">
-    <div class="thingy h-[20px] bg-[silver] w-[3px]"></div>
+    <div class="thingy h-[18px] w-[3px]"></div>
   </div>
 </template>
 <style scoped>
 .thingy {
+  background-color: var(--main-bg-color);
   box-shadow:
-    inset -1px -1px #7f7f7f,
-    inset 1px 1px #fff;
+    inset -1px -1px var(--border-gray),
+    inset 1px 1px white;
 }
 </style>
