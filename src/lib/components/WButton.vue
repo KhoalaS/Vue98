@@ -131,8 +131,16 @@ button:active {
   border-top: 1px solid black;
   border-left: 1px solid black;
   box-shadow:
-    inset 0px 1px var(--border-gray),
-    inset 1px 0px var(--border-gray),
+    inset 1px 1px var(--border-gray),
     inset -1px -1px var(--border-gray);
+}
+
+button:focus-visible {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  box-shadow:
+    inset -1px -1px black,
+    inset -2px -2px var(--border-gray),
+    inset 1px 1px white;
 }
 </style>
