@@ -29,7 +29,7 @@ const barPercent = ref(100)
     </WindowComponent>
 
     <TaskbarComponent>
-      <WButton>Start</WButton>
+      <StartButton></StartButton>
       <TaskbarGroup>
         <TabComponent label="Console"></TabComponent>
       </TaskbarGroup>

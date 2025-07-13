@@ -11,4 +11,11 @@
     inset -1px -1px var(--border-gray),
     inset 1px 1px white;
 }
+.thingy:hover {
+  cursor: ew-resize;
+}
+
+.thingy:active {
+  cursor: col-resize;
+}
 </style>

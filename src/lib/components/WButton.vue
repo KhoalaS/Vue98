@@ -22,7 +22,8 @@ const emit = defineEmits<{
   top: 0;
   left: 0;
 }
-button:active > .dash {
+
+button:focus > .dash {
   display: block;
 }
 
