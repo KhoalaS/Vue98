@@ -9,9 +9,9 @@ defineProps<{
 <template>
   <main class="window">
     <div class="title-bar">
-      <div class="title-bar-text flex gap-[4px]">
+      <div class="flex gap-[4px] items-center">
         <slot name="title-icon"></slot>
-        <span>
+        <span class="title-bar-text">
           {{ title }}
         </span>
       </div>
@@ -24,3 +24,27 @@ defineProps<{
     </div>
   </main>
 </template>
+
+<style scoped>
+.window {
+  background-color: var(--main-bg-color);
+  padding: 3px;
+  box-shadow:
+    inset -1px -1px black,
+    inset 1px 1px var(--main-bg-color),
+    inset -2px -2px var(--border-gray),
+    inset 2px 2px white;
+}
+
+.title-bar {
+  background-color: var(--title-bar-blue);
+  height: 18px;
+}
+
+.title-bar-text {
+  font-size: 11px;
+  font-weight: bold;
+  color: white;
+  margin-left: 3px;
+}
+</style>
