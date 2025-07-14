@@ -21,6 +21,7 @@ const emit = defineEmits<{
   position: absolute;
   top: 0;
   left: 0;
+  inset: 4px;
 }
 
 button:focus > .dash {
@@ -30,19 +31,7 @@ button:focus > .dash {
 button:active > .label {
   position: relative;
   top: 1px;
-}
-
-.dash.right {
-  inset: 3px 3px 4px 4px;
-}
-.dash.left {
-  inset: 3px 0px 4px 3px;
-}
-.dash.top {
-  inset: 3px 4px 4px 3px;
-}
-.dash.bottom {
-  inset: 4px 3px 3px 3px;
+  left: 1px;
 }
 .dash.top::before {
   box-sizing: border-box;
@@ -116,31 +105,29 @@ button {
   font-size: 11px;
   text-align: center;
   background-color: var(--main-bg-color);
-  border-right: 1px solid black;
-  border-bottom: 1px solid black;
   box-sizing: border-box;
   display: inline-block;
   box-shadow:
+    inset -1px -1px black,
     inset 0px 1px white,
     inset 1px 0px white,
-    inset -1px -1px var(--border-gray);
+    inset -2px -2px var(--border-gray);
   cursor: pointer;
 }
 
 button:active {
-  border-top: 1px solid black;
-  border-left: 1px solid black;
   box-shadow:
-    inset 1px 1px var(--border-gray),
-    inset -1px -1px var(--border-gray);
+    inset 1px 1px black,
+    inset -1px -1px black,
+    inset 2px 2px var(--border-gray),
+    inset -2px -2px var(--border-gray);
 }
 
-button:focus-visible {
-  border-top: 1px solid black;
-  border-left: 1px solid black;
+button:focus:not(:active) {
   box-shadow:
-    inset -1px -1px black,
-    inset -2px -2px var(--border-gray),
-    inset 1px 1px white;
+    inset 1px 1px black,
+    inset -2px -2px black,
+    inset 2px 2px white,
+    inset -3px -3px var(--border-gray);
 }
 </style>
