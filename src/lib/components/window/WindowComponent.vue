@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { WindowControls } from './Controls'
+import WindowButton from './WindowButton.vue'
 
 defineProps<{
   title?: string
@@ -16,7 +17,12 @@ defineProps<{
         </span>
       </div>
       <div class="title-bar-controls">
-        <button :key="control" v-for="control in controls" :aria-label="control"></button>
+        <WindowButton
+          :key="control"
+          v-for="control in controls"
+          :aria-label="control"
+          :type="control"
+        ></WindowButton>
       </div>
     </div>
     <div class="window-body">
@@ -38,7 +44,14 @@ defineProps<{
 
 .title-bar {
   background-color: var(--title-bar-blue);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   height: 18px;
+}
+
+.title-bar-controls {
+  display: flex;
 }
 
 .title-bar-text {

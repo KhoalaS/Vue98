@@ -109,8 +109,7 @@ button {
   display: inline-block;
   box-shadow:
     inset -1px -1px black,
-    inset 0px 1px white,
-    inset 1px 0px white,
+    inset 1px 1px white,
     inset -2px -2px var(--border-gray);
   cursor: pointer;
 }

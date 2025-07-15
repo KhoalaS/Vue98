@@ -9,6 +9,7 @@ import StatusBlock from './lib/components/taskbar/StatusBlock.vue'
 import StartButton from './lib/components/taskbar/StartButton.vue'
 import TabComponent from './lib/components/taskbar/TabComponent.vue'
 import WButton from './lib/components/WButton.vue'
+import WindowButton from './lib/components/window/WindowButton.vue'
 
 const barPercent = ref(100)
 </script>
@@ -22,6 +23,7 @@ const barPercent = ref(100)
       <template #body>
         <button @click="barPercent++">plus</button>
         <ProgressbarComponent v-model="barPercent"></ProgressbarComponent>
+        <WindowButton type="Close"></WindowButton>
       </template>
     </WindowComponent>
 
