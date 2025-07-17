@@ -10,6 +10,7 @@ import StartButton from './lib/components/taskbar/StartButton.vue'
 import TabComponent from './lib/components/taskbar/TabComponent.vue'
 import WButton from './lib/components/WButton.vue'
 import WindowButton from './lib/components/window/WindowButton.vue'
+import TitlebarIcon from './lib/components/window/TitlebarIcon.vue'
 
 const barPercent = ref(100)
 </script>
@@ -23,7 +24,9 @@ const barPercent = ref(100)
       :controls="['Minimize', 'Maximize', 'Close']"
       class="w-[200px]"
     >
-      <template #title-icon> </template>
+      <template #title-icon>
+        <TitlebarIcon icon="document"></TitlebarIcon>
+      </template>
       <template #body>
         <button @click="barPercent++">plus</button>
         <ProgressbarComponent v-model="barPercent"></ProgressbarComponent>

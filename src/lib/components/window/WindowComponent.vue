@@ -11,7 +11,7 @@ defineProps<{
   <main class="window">
     <div class="title-bar">
       <div class="flex gap-[4px] items-center">
-        <slot name="title-icon"></slot>
+        <slot name="title-icon"> </slot>
         <span class="title-bar-text">
           {{ title }}
         </span>
