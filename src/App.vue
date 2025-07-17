@@ -28,9 +28,11 @@ const barPercent = ref(100)
         <TitlebarIcon icon="document"></TitlebarIcon>
       </template>
       <template #body>
-        <button @click="barPercent++">plus</button>
-        <ProgressbarComponent v-model="barPercent"></ProgressbarComponent>
-        <WindowButton type="Close"></WindowButton>
+        <div style="background-color: white">
+          <button @click="barPercent++">plus</button>
+          <ProgressbarComponent v-model="barPercent"></ProgressbarComponent>
+          <WindowButton type="Close"></WindowButton>
+        </div>
       </template>
     </WindowComponent>
 
