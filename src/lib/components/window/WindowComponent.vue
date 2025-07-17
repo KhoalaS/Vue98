@@ -48,6 +48,7 @@ defineProps<{
   justify-content: space-between;
   align-items: center;
   height: 18px;
+  margin-bottom: 1px;
 }
 
 .title-bar-controls {

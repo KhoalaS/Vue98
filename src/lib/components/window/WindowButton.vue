@@ -35,6 +35,7 @@ button:active {
 
 button:last-child {
   margin-left: 2px;
+  margin-right: 2px;
 }
 
 .icon {
