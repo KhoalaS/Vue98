@@ -18,7 +18,11 @@ const barPercent = ref(100)
   <main style="padding: 12px; background-color: var(--desktop-bg-color); height: 100%">
     <button>Test</button>
     <input type="text" />
-    <WindowComponent title="1 Properties" :controls="['Minimize', 'Close']" class="w-[200px]">
+    <WindowComponent
+      title="1 Properties"
+      :controls="['Minimize', 'Maximize', 'Close']"
+      class="w-[200px]"
+    >
       <template #title-icon> </template>
       <template #body>
         <button @click="barPercent++">plus</button>

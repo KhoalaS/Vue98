@@ -1,6 +1,5 @@
 <script setup lang="ts">
-import type { WindowControls } from './Controls'
-import window_x from '../../assets/window_x.ico'
+import { WindowControlIcons, type WindowControls } from './Controls'
 
 defineProps<{
   type: WindowControls
@@ -8,7 +7,7 @@ defineProps<{
 </script>
 <template>
   <button>
-    <img class="icon" v-if="type == 'Close'" :src="window_x" />
+    <img class="icon" :src="WindowControlIcons[type]" />
   </button>
 </template>
 
@@ -32,6 +31,10 @@ button:active {
     inset 1px 1px black,
     inset -2px -2px var(--main-bg-color),
     inset 2px 2px var(--border-gray);
+}
+
+button:last-child {
+  margin-left: 2px;
 }
 
 .icon {
