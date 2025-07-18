@@ -1,6 +1,6 @@
 <script setup lang="ts"></script>
 <template>
-  <main class="taskbar flex w-full gap-1 fixed bottom-0 left-0 h-[28px] bg-[silver]">
+  <main class="taskbar flex w-full gap-1 h-[28px] bg-[silver]">
     <slot name="default"></slot>
   </main>
 </template>
