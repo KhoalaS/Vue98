@@ -21,6 +21,7 @@ Vue components with Windows98 Second Edition look.
 
 **Windows**
 
+- [ ] Window content frame
 - [x] Title bar
   - [x] Icon
   - [x] Control buttons 

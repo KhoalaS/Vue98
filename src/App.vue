@@ -11,6 +11,8 @@ import TabComponent from './lib/components/taskbar/TabComponent.vue'
 import WButton from './lib/components/WButton.vue'
 import WindowButton from './lib/components/window/WindowButton.vue'
 import TitlebarIcon from './lib/components/window/TitlebarIcon.vue'
+import WindowBody from './lib/components/window/WindowBody.vue'
+import TaskbarGroupheader from './lib/components/taskbar/TaskbarGroupheader.vue'
 
 const barPercent = ref(100)
 </script>
@@ -28,11 +30,22 @@ const barPercent = ref(100)
         <TitlebarIcon icon="document"></TitlebarIcon>
       </template>
       <template #body>
-        <div style="background-color: white">
-          <button @click="barPercent++">plus</button>
-          <ProgressbarComponent v-model="barPercent"></ProgressbarComponent>
-          <WindowButton type="Close"></WindowButton>
-        </div>
+        <WindowBody>
+          <template #toolbars>
+            <div class="flex h-[24px] p-[2px] items-center">
+              <TaskbarGroupheader></TaskbarGroupheader>
+              <div>1s</div>
+            </div>
+            <div class="flex h-[24px] p-[2px] items-center">
+              <TaskbarGroupheader></TaskbarGroupheader>
+              <div>Edit</div>
+            </div>
+          </template>
+          <div>
+            <button @click="barPercent++">plus</button>
+            <ProgressbarComponent v-model="barPercent"></ProgressbarComponent>
+            <WindowButton type="Close"></WindowButton></div
+        ></WindowBody>
       </template>
     </WindowComponent>
 

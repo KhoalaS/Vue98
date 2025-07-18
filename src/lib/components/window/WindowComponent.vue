@@ -34,7 +34,7 @@ defineProps<{
 <style scoped>
 .window {
   background-color: var(--main-bg-color);
-  padding: 3px;
+  padding: 4px;
   box-shadow:
     inset -1px -1px black,
     inset 1px 1px var(--main-bg-color),

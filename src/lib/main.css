@@ -2,6 +2,7 @@
 
 @theme {
   --font-display: 'Pixelated MS Sans Serif', 'Arial';
+  --text-sm: 11px;
 }
 
 @font-face {
