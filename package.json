@@ -6,6 +6,10 @@
   "types": "./dist/index.es.d.ts",
   "module": "./dist/index.es.js",
   "style": "./dist/main.css",
+  "files": [
+    "dist",
+    "README.md"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check \"build-only {@}\" --",
