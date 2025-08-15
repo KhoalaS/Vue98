@@ -4,12 +4,12 @@ import { useSlots } from 'vue'
 const slots = useSlots()
 </script>
 <template>
-  <main>
+  <div>
     <div v-if="slots.toolbars" class="toolbars text-sm">
       <slot name="toolbars"></slot>
     </div>
     <slot name="default"></slot>
-  </main>
+  </div>
 </template>
 <style scoped>
 main {
