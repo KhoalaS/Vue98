@@ -20,6 +20,10 @@ export default defineConfig({
       formats: ['es'],
       entry: resolve(__dirname, 'src/lib/index.ts'),
       fileName: (format) => `index.${format}.js`,
+      cssFileName: 'main',
+    },
+    rollupOptions: {
+      external: ['vue'],
     },
   },
   resolve: {
