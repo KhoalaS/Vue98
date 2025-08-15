@@ -16,7 +16,7 @@ const { width } = useElementSize(progressBar)
 
 const barCount = computed(() => {
   const progress = Math.floor(width.value * (model.value / max))
-  return Math.floor(progress / 10)
+  return Math.floor(progress / 10) + 1
 })
 const labelId = crypto.randomUUID()
 </script>
