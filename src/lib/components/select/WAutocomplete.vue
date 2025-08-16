@@ -69,6 +69,7 @@ function handleClickSelection() {
 option {
   line-height: 15px;
   cursor: default;
+  user-select: none;
 }
 
 option:hover {
