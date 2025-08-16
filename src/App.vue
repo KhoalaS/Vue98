@@ -17,6 +17,14 @@ import WInput from './lib/components/input/WInput.vue'
 import WAutocomplete from './lib/components/select/WAutocomplete.vue'
 
 const barPercent = ref(0.3)
+const options = Array(20)
+  .fill(null)
+  .map((_, idx) => {
+    return {
+      id: 'dummy' + idx,
+      name: 'Dummy' + idx,
+    }
+  })
 </script>
 
 <template>
@@ -53,7 +61,7 @@ const barPercent = ref(0.3)
           </div>
           <label for="stuff">Stuff</label>
           <WInput id="stuff"></WInput>
-          <WAutocomplete></WAutocomplete>
+          <WAutocomplete :options="options"></WAutocomplete>
         </WindowBody>
       </template>
     </WindowComponent>

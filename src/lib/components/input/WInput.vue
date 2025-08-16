@@ -1,16 +1,24 @@
 <script setup lang="ts">
+import { useTemplateRef } from 'vue'
+
 defineProps<{
   id?: string
 }>()
+
+const inputRef = useTemplateRef('inputRef')
 
 const model = defineModel<string | number | boolean>({
   required: false,
   default: '',
 })
+
+defineExpose({
+  inputRef,
+})
 </script>
 <template>
   <div class="input">
-    <input :id="id" class="text-sm px-0.5 grow" v-model="model" />
+    <input ref="inputRef" :id="id" class="text-sm px-0.5 grow" v-model="model" />
     <slot name="right-icon"></slot>
   </div>
 </template>

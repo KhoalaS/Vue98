@@ -30,6 +30,7 @@
   --main-bg-color: #c0c7c8;
   --border-gray: #87888f;
   --title-bar-blue: #0000a8;
+  --select-blue: #0000a8;
   font-family: 'Pixelated MS Sans Serif', Arial;
 }
 
@@ -39,4 +40,65 @@ body {
 
 #app {
   height: 100%;
+}
+
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--main-bg-color);
+  box-shadow:
+    inset -1px -1px black,
+    inset 1px 1px var(--main-bg-color),
+    inset -2px -2px var(--border-gray),
+    inset 2px 2px white;
+}
+
+::-webkit-scrollbar-button:vertical:decrement {
+  width: 16px;
+  height: 16px;
+  background-image: url('data:image/ico;base64,AAABAAEACQkCAAEAAQB4AAAAFgAAACgAAAAJAAAAEgAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP+AAAD/gAAA/4AAAAGAAACDgAAAx4AAAO+AAAD/gAAA/4AAAA==');
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  background-color: var(--main-bg-color);
+  background-position: left 4px top 4px;
+  box-shadow:
+    inset -1px -1px black,
+    inset 1px 1px var(--main-bg-color),
+    inset -2px -2px var(--border-gray),
+    inset 2px 2px white;
+}
+
+::-webkit-scrollbar-button:vertical:increment {
+  width: 16px;
+  height: 16px;
+  background-image: url('data:image/ico;base64,AAABAAEACQkCAAEAAQB4AAAAFgAAACgAAAAJAAAAEgAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP+AAAD/gAAA/4AAAO+AAADHgAAAg4AAAAGAAAD/gAAA/4AAAA==');
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  background-color: var(--main-bg-color);
+  background-position: left 4px top 4px;
+  box-shadow:
+    inset -1px -1px black,
+    inset 1px 1px var(--main-bg-color),
+    inset -2px -2px var(--border-gray),
+    inset 2px 2px white;
+}
+
+::-webkit-scrollbar-button:vertical:active {
+  background-position: left 5px top 5px;
+  box-shadow:
+    inset 1px 1px var(--border-gray),
+    inset -1px -1px var(--border-gray);
+}
+
+::-webkit-scrollbar-track {
+  background: repeating-conic-gradient(white 0deg 90deg, var(--main-bg-color) 90deg 180deg);
+  background-size: 2px 2px; /* 1px white, 1px gray */
+}
+
+::selection {
+  background: var(--select-blue);
+  color: white;
 }
