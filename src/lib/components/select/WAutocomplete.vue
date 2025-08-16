@@ -2,14 +2,15 @@
 import { ref, useTemplateRef } from 'vue'
 import WInput from '../input/WInput.vue'
 import WSelectButton from './WSelectButton.vue'
+import { onKeyStroke } from '@vueuse/core'
 
-defineProps<{
+const props = defineProps<{
   options?: T[]
   noneOption?: T
 }>()
 
 const showSelection = ref(false)
-
+const listId = crypto.randomUUID()
 const winput = useTemplateRef('winput')
 
 const model = defineModel<T>({
@@ -18,6 +19,40 @@ const model = defineModel<T>({
     id: 'NONE',
     name: 'None',
   },
+})
+
+onKeyStroke(['ArrowDown', 'ArrowUp'], (e) => {
+  if (!showSelection.value || props.options == undefined) {
+    return
+  }
+
+  e.preventDefault()
+
+  let currentIndex = props.options.findIndex((option) => option.id == model.value.id)
+  if (currentIndex == undefined || currentIndex == -1) {
+    currentIndex = -1
+  }
+
+  const direction = e.key == 'ArrowDown' ? 1 : -1
+
+  const nextIndex = currentIndex + 1 * direction
+
+  if (nextIndex >= props.options.length) {
+    return
+  }
+
+  if (nextIndex < 0) {
+    return
+  }
+
+  model.value = props.options[nextIndex]
+  const nextOption = document.querySelector(`[id="${listId}"] > option[value="${model.value.id}"]`)
+  if (nextOption) {
+    nextOption.scrollIntoView({
+      block: 'nearest',
+      inline: 'nearest',
+    })
+  }
 })
 
 function handleSelect(option: T) {
@@ -39,12 +74,19 @@ function handleClickSelection() {
         <WSelectButton :disabled="!options" @click="handleClickSelection"></WSelectButton>
       </template>
     </WInput>
+    <select>
+      <option>1</option>
+      <option>2</option>
+    </select>
     <div
+      :id="listId"
+      role="combobox"
       v-if="showSelection"
       class="absolute overflow-y-auto top-[21px] z-10 max-h-[167px] w-full bg-white border-[1px] border-black"
     >
       <option
-        class="text-sm"
+        class="text-sm px-0.5"
+        :aria-selected="noneOption.id == model.id"
         :class="{ selected: noneOption.id == model.id }"
         v-if="noneOption"
         @click="handleSelect(noneOption)"
@@ -53,7 +95,8 @@ function handleClickSelection() {
         {{ noneOption.name }}
       </option>
       <option
-        class="text-sm"
+        :aria-selected="value.id == model.id"
+        class="text-sm px-0.5"
         :class="{ selected: value.id == model.id }"
         @click="handleSelect(value)"
         :key="value.id"
