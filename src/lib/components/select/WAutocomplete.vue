@@ -23,11 +23,16 @@ function handleSelect(option: T) {
 const showSelection = ref(false)
 </script>
 <template>
-  <div class="flex flex-col">
+  <div class="flex flex-col relative">
     <WInput v-model="model.name">
-      <WSelectButton @click="showSelection = !showSelection"></WSelectButton>
+      <template #right-icon>
+        <WSelectButton :disabled="!options" @click="showSelection = !showSelection"></WSelectButton>
+      </template>
     </WInput>
-    <div v-if="showSelection" class="max-h-[165px] w-full bg-white border-[1px] border-black">
+    <div
+      v-if="showSelection"
+      class="absolute top-[21px] z-10 max-h-[165px] w-full bg-white border-[1px] border-black"
+    >
       <option v-if="noneOption" @click="handleSelect(noneOption)" :value="noneOption.id">
         {{ noneOption.name }}
       </option>

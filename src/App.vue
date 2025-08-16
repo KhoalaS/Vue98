@@ -51,7 +51,8 @@ const barPercent = ref(0.3)
             ></ProgressbarComponent>
             <WindowButton type="Close"></WindowButton>
           </div>
-          <WInput></WInput>
+          <label for="stuff">Stuff</label>
+          <WInput id="stuff"></WInput>
           <WAutocomplete></WAutocomplete>
         </WindowBody>
       </template>

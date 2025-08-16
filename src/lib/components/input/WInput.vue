@@ -1,4 +1,8 @@
 <script setup lang="ts">
+defineProps<{
+  id?: string
+}>()
+
 const model = defineModel<string | number | boolean>({
   required: false,
   default: '',
@@ -6,8 +10,8 @@ const model = defineModel<string | number | boolean>({
 </script>
 <template>
   <div class="input">
-    <input class="text-sm px-0.5 grow" v-model="model" />
-    <slot name="default"></slot>
+    <input :id="id" class="text-sm px-0.5 grow" v-model="model" />
+    <slot name="right-icon"></slot>
   </div>
 </template>
 <style scoped="scoped">

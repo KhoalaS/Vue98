@@ -1,11 +1,16 @@
 <script setup lang="ts">
 import { SelectIcons } from './Icons'
+
+defineProps<{
+  disabled?: boolean
+}>()
+
 const emit = defineEmits<{
   click: []
 }>()
 </script>
 <template>
-  <button @click="emit('click')">
+  <button :disabled="disabled" @click="emit('click')">
     <img style="text-align: center" class="icon" :src="SelectIcons.CaretDown" />
   </button>
 </template>
