@@ -13,6 +13,7 @@ import WindowButton from './lib/components/window/WindowButton.vue'
 import TitlebarIcon from './lib/components/window/TitlebarIcon.vue'
 import WindowBody from './lib/components/window/WindowBody.vue'
 import TaskbarGroupheader from './lib/components/taskbar/TaskbarGroupheader.vue'
+import WInput from './lib/components/input/WInput.vue'
 
 const barPercent = ref(0.3)
 </script>
@@ -47,8 +48,12 @@ const barPercent = ref(0.3)
               v-model="barPercent"
               :max="1"
             ></ProgressbarComponent>
-            <WindowButton type="Close"></WindowButton></div
-        ></WindowBody>
+            <WindowButton type="Close"></WindowButton>
+          </div>
+          <div>
+            <WInput></WInput>
+          </div>
+        </WindowBody>
       </template>
     </WindowComponent>
 
