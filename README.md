@@ -2,6 +2,8 @@
 
 Vue components with Windows98 Second Edition look.
 
+![Demo](https://raw.githubusercontent.com/KhoalaS/Vue98/refs/heads/main/images/demo.png)
+
 ## TODO
 
 **Button**
@@ -24,4 +26,4 @@ Vue components with Windows98 Second Edition look.
 - [ ] Window content frame
 - [x] Title bar
   - [x] Icon
-  - [x] Control buttons 
+  - [x] Control buttons
