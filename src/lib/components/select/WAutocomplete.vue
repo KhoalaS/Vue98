@@ -84,10 +84,6 @@ function handleClickSelection() {
         <WSelectButton :disabled="!options" @click="handleClickSelection"></WSelectButton>
       </template>
     </WInput>
-    <select>
-      <option>1</option>
-      <option>2</option>
-    </select>
     <div
       :id="listId"
       role="combobox"
