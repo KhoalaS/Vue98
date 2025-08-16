@@ -30,6 +30,12 @@ import LoudspeakerIcon from './icons/LoudspeakerIcon.vue'
 import WindowsIcon from './icons/WindowsIcon.vue'
 // #endregion
 
+// #region Input
+import WInput from './input/WInput.vue'
+import WAutocomplete from './select/WAutocomplete.vue'
+import { SelectIcons } from './select/Icons'
+// #endregion
+
 export {
   WButton,
   TitlebarIcon,
@@ -52,4 +58,7 @@ export {
   ConsolePromptIcon,
   LoudspeakerIcon,
   WindowsIcon,
+  WInput,
+  WAutocomplete,
+  SelectIcons,
 }

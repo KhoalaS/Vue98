@@ -5,20 +5,23 @@ const model = defineModel<string | number | boolean>({
 })
 </script>
 <template>
-  <input class="text-sm" v-model="model" />
+  <div class="input">
+    <input class="text-sm px-0.5 grow" v-model="model" />
+    <slot name="default"></slot>
+  </div>
 </template>
 <style scoped="scoped">
-input {
-  background-color: white;
-  padding-left: 0.25rem;
-  padding-right: 0.25rem;
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  outline: none;
+.input {
+  display: flex;
+  padding: 2px;
   box-shadow:
     inset -1px -1px white,
     inset 1px 1px var(--border-gray),
     inset -2px -2px var(--main-bg-color),
     inset 2px 2px black;
+}
+input {
+  background-color: white;
+  outline: none;
 }
 </style>
