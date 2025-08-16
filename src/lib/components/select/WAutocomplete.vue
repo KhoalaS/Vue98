@@ -64,6 +64,16 @@ function handleClickSelection() {
   showSelection.value = !showSelection.value
   if (showSelection.value) {
     winput.value?.inputRef?.select()
+
+    const optionElem = document.querySelector(
+      `[id="${listId}"] > option[value="${model.value.id}"]`,
+    )
+    if (optionElem) {
+      optionElem.scrollIntoView({
+        block: 'nearest',
+        inline: 'nearest',
+      })
+    }
   }
 }
 </script>
@@ -81,7 +91,7 @@ function handleClickSelection() {
     <div
       :id="listId"
       role="combobox"
-      v-if="showSelection"
+      v-show="showSelection"
       class="absolute overflow-y-auto top-[21px] z-10 max-h-[167px] w-full bg-white border-[1px] border-black"
     >
       <option
