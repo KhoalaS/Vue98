@@ -1,14 +1,8 @@
 <script setup lang="ts" generic="T extends { id: string; name: string }">
-import { ref } from 'vue'
-import { onKeyStroke } from '@vueuse/core'
-
-const props = defineProps<{
+defineProps<{
   options?: T[]
   noneOption?: T
 }>()
-
-const showSelection = ref(false)
-const listId = crypto.randomUUID()
 
 const model = defineModel<T>({
   required: false,
@@ -17,72 +11,14 @@ const model = defineModel<T>({
     name: 'None',
   },
 })
-
-onKeyStroke(['ArrowDown', 'ArrowUp'], (e) => {
-  if (!showSelection.value || props.options == undefined) {
-    return
-  }
-
-  e.preventDefault()
-
-  let currentIndex = props.options.findIndex((option) => option.id == model.value.id)
-  if (currentIndex == undefined || currentIndex == -1) {
-    currentIndex = -1
-  }
-
-  const direction = e.key == 'ArrowDown' ? 1 : -1
-
-  const nextIndex = currentIndex + 1 * direction
-
-  if (nextIndex >= props.options.length) {
-    return
-  }
-
-  if (nextIndex < 0) {
-    return
-  }
-
-  model.value = props.options[nextIndex]
-  const nextOption = document.querySelector(`[id="${listId}"] > option[value="${model.value.id}"]`)
-  if (nextOption) {
-    nextOption.scrollIntoView({
-      block: 'nearest',
-      inline: 'nearest',
-    })
-  }
-})
-
-function handleSelect(option: T) {
-  model.value = option
-  showSelection.value = false
-}
 </script>
 <template>
   <div class="select text-sm">
-    <select
-      :id="listId"
-      role="combobox"
-      class="overflow-y-auto top-[21px] z-10 max-h-[167px] w-full bg-white border-[1px] border-black"
-    >
-      <option
-        class="text-sm px-0.5"
-        :aria-selected="noneOption.id == model.id"
-        :class="{ selected: noneOption.id == model.id }"
-        v-if="noneOption"
-        @click="handleSelect(noneOption)"
-        :value="noneOption.id"
-      >
+    <select v-model="model">
+      <option v-if="noneOption" :value="noneOption">
         {{ noneOption.name }}
       </option>
-      <option
-        :aria-selected="value.id == model.id"
-        class="text-sm px-0.5"
-        :class="{ selected: value.id == model.id }"
-        @click="handleSelect(value)"
-        :key="value.id"
-        v-for="value in options ?? []"
-        :value="value.id"
-      >
+      <option :key="value.id" v-for="value in options ?? []" :value="value">
         {{ value.name }}
       </option>
     </select>
@@ -106,7 +42,6 @@ select {
 
 .select {
   width: 100%;
-  min-width: 15ch;
   padding: 2px 4px;
   padding-right: 2px;
   cursor: pointer;
@@ -124,6 +59,7 @@ select {
 
 .select::after {
   content: '';
+  pointer-events: none;
   image-rendering: pixelated;
   justify-self: end;
 
