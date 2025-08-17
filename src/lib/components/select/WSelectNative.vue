@@ -1,7 +1,5 @@
 <script setup lang="ts" generic="T extends { id: string; name: string }">
-import { ref, useTemplateRef } from 'vue'
-import WInput from '../input/WInput.vue'
-import WSelectButton from './WSelectButton.vue'
+import { ref } from 'vue'
 import { onKeyStroke } from '@vueuse/core'
 
 const props = defineProps<{
@@ -11,7 +9,6 @@ const props = defineProps<{
 
 const showSelection = ref(false)
 const listId = crypto.randomUUID()
-const winput = useTemplateRef('winput')
 
 const model = defineModel<T>({
   required: false,
@@ -59,36 +56,13 @@ function handleSelect(option: T) {
   model.value = option
   showSelection.value = false
 }
-
-function handleClickSelection() {
-  showSelection.value = !showSelection.value
-  if (showSelection.value) {
-    winput.value?.inputRef?.select()
-
-    const optionElem = document.querySelector(
-      `[id="${listId}"] > option[value="${model.value.id}"]`,
-    )
-    if (optionElem) {
-      optionElem.scrollIntoView({
-        block: 'nearest',
-        inline: 'nearest',
-      })
-    }
-  }
-}
 </script>
 <template>
-  <div class="flex flex-col relative">
-    <WInput ref="winput" v-model="model.name">
-      <template #right-icon>
-        <WSelectButton :disabled="!options" @click="handleClickSelection"></WSelectButton>
-      </template>
-    </WInput>
-    <div
+  <div class="select text-sm">
+    <select
       :id="listId"
       role="combobox"
-      v-show="showSelection"
-      class="absolute overflow-y-auto top-[21px] z-20 max-h-[167px] w-full bg-white border-[1px] border-black"
+      class="overflow-y-auto top-[21px] z-10 max-h-[167px] w-full bg-white border-[1px] border-black"
     >
       <option
         class="text-sm px-0.5"
@@ -111,10 +85,76 @@ function handleClickSelection() {
       >
         {{ value.name }}
       </option>
-    </div>
+    </select>
   </div>
 </template>
 <style scoped>
+select {
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 16px 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+
+  outline: none;
+}
+
+.select {
+  width: 100%;
+  min-width: 15ch;
+  padding: 2px 4px;
+  padding-right: 2px;
+  cursor: pointer;
+  background-color: white;
+  display: grid;
+  grid-template-areas: 'select';
+  align-items: center;
+
+  box-shadow:
+    inset -1px -1px white,
+    inset 1px 1px var(--border-gray),
+    inset -2px -2px var(--main-bg-color),
+    inset 2px 2px black;
+}
+
+.select::after {
+  content: '';
+  image-rendering: pixelated;
+  justify-self: end;
+
+  width: 16px;
+  height: 17px;
+  position: relative;
+  background-color: var(--main-bg-color);
+  background-repeat: no-repeat;
+  background-position: left 4px top 4px;
+
+  box-shadow:
+    inset -1px -1px black,
+    inset 1px 1px var(--main-bg-color),
+    inset -2px -2px var(--border-gray),
+    inset 2px 2px white;
+
+  background-image: url('data:image/ico;base64,AAABAAEACQkCAAEAAQB4AAAAFgAAACgAAAAJAAAAEgAAAAEAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAP+AAAD/gAAA/4AAAO+AAADHgAAAg4AAAAGAAAD/gAAA/4AAAA==');
+}
+
+.select:active::after {
+  background-position: left 5px top 5px;
+  box-shadow:
+    inset 1px 1px var(--border-gray),
+    inset -1px -1px var(--border-gray);
+}
+
+select,
+.select:after {
+  grid-area: select;
+}
+
 option {
   line-height: 15px;
   cursor: default;

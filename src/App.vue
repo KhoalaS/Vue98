@@ -15,6 +15,7 @@ import WindowBody from './lib/components/window/WindowBody.vue'
 import TaskbarGroupheader from './lib/components/taskbar/TaskbarGroupheader.vue'
 import WInput from './lib/components/input/WInput.vue'
 import WAutocomplete from './lib/components/select/WAutocomplete.vue'
+import WSelectNative from './lib/components/select/WSelectNative.vue'
 
 const barPercent = ref(0.3)
 const options = Array(20)
@@ -62,6 +63,7 @@ const options = Array(20)
           <label for="stuff">Stuff</label>
           <WInput id="stuff"></WInput>
           <WAutocomplete :options="options"></WAutocomplete>
+          <WSelectNative :options="options"></WSelectNative>
         </WindowBody>
       </template>
     </WindowComponent>

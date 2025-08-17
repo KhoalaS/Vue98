@@ -31,3 +31,4 @@ Vue components with Windows98 Second Edition look.
 **Select**
 - [ ] Select
   - [ ] rewrite with native select
+  - [ ] focus border

@@ -24,7 +24,7 @@ import TaskbarGroupheader from './taskbar/TaskbarGroupheader.vue'
 import ProgressbarComponent from './progress/ProgressbarComponent.vue'
 // #endregion
 
-// #region icons
+// #region Icons
 import ConsolePromptIcon from './icons/ConsolePromptIcon.vue'
 import LoudspeakerIcon from './icons/LoudspeakerIcon.vue'
 import WindowsIcon from './icons/WindowsIcon.vue'
@@ -34,6 +34,7 @@ import WindowsIcon from './icons/WindowsIcon.vue'
 import WInput from './input/WInput.vue'
 import WAutocomplete from './select/WAutocomplete.vue'
 import { SelectIcons } from './select/Icons'
+import WSelectNative from './select/WSelectNative.vue'
 // #endregion
 
 export {
@@ -61,4 +62,5 @@ export {
   WInput,
   WAutocomplete,
   SelectIcons,
+  WSelectNative,
 }
