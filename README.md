@@ -16,10 +16,10 @@ Vue components with Windows98 Second Edition look.
   - [ ] Disabled
 
 **Taskbar**
-
 - [x] Toolbar divider
 
 **Progressbar**
+  - [x] Progressbar
 
 **Windows**
 
@@ -27,3 +27,7 @@ Vue components with Windows98 Second Edition look.
 - [x] Title bar
   - [x] Icon
   - [x] Control buttons
+
+**Select**
+- [ ] Select
+  - [ ] rewrite with native select
