@@ -33,6 +33,7 @@ defineProps<{
 
 <style scoped>
 .window {
+  width: fit-content;
   background-color: var(--main-bg-color);
   padding: 4px;
   box-shadow:
