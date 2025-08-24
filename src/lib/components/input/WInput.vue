@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { useTemplateRef } from 'vue'
+import { useTemplateRef, type InputTypeHTMLAttribute } from 'vue'
 
 defineProps<{
   id?: string
+  type?: InputTypeHTMLAttribute
 }>()
 
 const inputRef = useTemplateRef('inputRef')
@@ -18,7 +19,13 @@ defineExpose({
 </script>
 <template>
   <div class="input">
-    <input ref="inputRef" :id="id" class="text-sm px-0.5 grow" v-model="model" />
+    <input
+      :type="type"
+      ref="inputRef"
+      :id="id"
+      class="text-sm px-0.5 grow w-full"
+      v-model="model"
+    />
     <slot name="right-icon"></slot>
   </div>
 </template>
