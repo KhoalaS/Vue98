@@ -34,14 +34,6 @@
   font-family: 'Pixelated MS Sans Serif', Arial;
 }
 
-body {
-  height: 100vh;
-}
-
-#app {
-  height: 100%;
-}
-
 ::-webkit-scrollbar {
   width: 16px;
 }
