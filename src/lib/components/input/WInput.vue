@@ -1,9 +1,8 @@
 <script setup lang="ts">
-import { useTemplateRef, type InputTypeHTMLAttribute } from 'vue'
+import { useTemplateRef, watch } from 'vue'
 
-defineProps<{
-  id?: string
-  type?: InputTypeHTMLAttribute
+const props = defineProps<{
+  initial?: string | number | boolean
 }>()
 
 const inputRef = useTemplateRef('inputRef')
@@ -13,19 +12,25 @@ const model = defineModel<string | number | boolean>({
   default: '',
 })
 
+const emit = defineEmits<{
+  (e: 'update', value: string | number | boolean): void
+}>()
+
+watch(model, (value) => {
+  emit('update', value)
+})
+
+if (props.initial != undefined) {
+  model.value = props.initial
+}
+
 defineExpose({
   inputRef,
 })
 </script>
 <template>
   <div class="input">
-    <input
-      :type="type"
-      ref="inputRef"
-      :id="id"
-      class="text-sm px-0.5 grow w-full"
-      v-model="model"
-    />
+    <input v-bind="$attrs" ref="inputRef" class="text-sm px-0.5 grow w-full" v-model="model" />
     <slot name="right-icon"></slot>
   </div>
 </template>
