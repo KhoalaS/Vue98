@@ -6,6 +6,10 @@ defineProps<{
   title?: string
   controls?: WindowControls[]
 }>()
+
+const emit = defineEmits<{
+  'click:control': [ctrl: WindowControls]
+}>()
 </script>
 <template>
   <main class="window">
@@ -22,6 +26,7 @@ defineProps<{
           v-for="control in controls"
           :aria-label="control"
           :type="control"
+          @click="emit('click:control', control)"
         ></WindowButton>
       </div>
     </div>

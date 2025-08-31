@@ -4,9 +4,13 @@ import { WindowControlIcons, type WindowControls } from './Controls'
 defineProps<{
   type: WindowControls
 }>()
+
+const emit = defineEmits<{
+  click: [event: MouseEvent]
+}>()
 </script>
 <template>
-  <button>
+  <button @click="(e) => emit('click', e)">
     <img class="icon" :src="WindowControlIcons[type]" />
   </button>
 </template>

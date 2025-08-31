@@ -2,6 +2,7 @@
 import { useTemplateRef, watch } from 'vue'
 
 const props = defineProps<{
+  value?: string | number | boolean
   initial?: string | number | boolean
 }>()
 
@@ -23,6 +24,15 @@ watch(model, (value) => {
 if (props.initial != undefined) {
   model.value = props.initial
 }
+
+watch(
+  () => props.value,
+  (newVal) => {
+    if (newVal !== undefined && newVal !== model.value) {
+      model.value = newVal
+    }
+  },
+)
 
 defineExpose({
   inputRef,
