@@ -4,6 +4,7 @@ import { useTemplateRef, watch } from 'vue'
 const props = defineProps<{
   value?: string | number | boolean
   initial?: string | number | boolean
+  id?: string
 }>()
 
 const inputRef = useTemplateRef('inputRef')
@@ -40,7 +41,13 @@ defineExpose({
 </script>
 <template>
   <div class="input">
-    <input v-bind="$attrs" ref="inputRef" class="text-sm px-0.5 grow w-full" v-model="model" />
+    <input
+      v-bind="$attrs"
+      :id="id"
+      ref="inputRef"
+      class="text-sm px-0.5 grow w-full"
+      v-model="model"
+    />
     <slot name="right-icon"></slot>
   </div>
 </template>
