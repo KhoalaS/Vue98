@@ -7,6 +7,7 @@ import { onKeyStroke } from '@vueuse/core'
 const props = defineProps<{
   options?: T[]
   noneOption?: T
+  initial?: T
 }>()
 
 const showSelection = ref(false)
@@ -20,6 +21,10 @@ const model = defineModel<T>({
     name: 'None',
   },
 })
+
+if (props.initial != undefined) {
+  model.value = props.initial
+}
 
 onKeyStroke(['ArrowDown', 'ArrowUp'], (e) => {
   if (!showSelection.value || props.options == undefined) {

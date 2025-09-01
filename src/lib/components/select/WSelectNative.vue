@@ -1,7 +1,8 @@
 <script setup lang="ts" generic="T extends { id: string; name: string }">
-defineProps<{
+const props = defineProps<{
   options?: T[]
   noneOption?: T
+  initial?: T
 }>()
 
 const model = defineModel<T>({
@@ -11,6 +12,10 @@ const model = defineModel<T>({
     name: 'None',
   },
 })
+
+if (props.initial != undefined) {
+  model.value = props.initial
+}
 </script>
 <template>
   <div class="select text-sm">
