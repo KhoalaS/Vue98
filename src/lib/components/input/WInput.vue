@@ -3,7 +3,6 @@ import { useTemplateRef, watch } from 'vue'
 
 const props = defineProps<{
   value?: string | number | boolean
-  initial?: string | number | boolean
   id?: string
 }>()
 
@@ -22,8 +21,8 @@ watch(model, (value) => {
   emit('update', value)
 })
 
-if (props.initial != undefined) {
-  model.value = props.initial
+if (props.value != undefined) {
+  model.value = props.value
 }
 
 watch(
