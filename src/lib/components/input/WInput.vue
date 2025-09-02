@@ -14,7 +14,8 @@ const model = defineModel<string | number | boolean>({
 })
 
 const emit = defineEmits<{
-  (e: 'update', value: string | number | boolean): void
+  update: [value: string | number | boolean]
+  valueChange: []
 }>()
 
 if (props.value != undefined) {
@@ -26,6 +27,7 @@ watch(
   (newVal) => {
     if (newVal !== undefined && newVal !== model.value) {
       model.value = newVal
+      emit('valueChange')
     }
   },
 )
