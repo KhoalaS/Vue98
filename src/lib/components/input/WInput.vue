@@ -17,10 +17,6 @@ const emit = defineEmits<{
   (e: 'update', value: string | number | boolean): void
 }>()
 
-watch(model, (value) => {
-  emit('update', value)
-})
-
 if (props.value != undefined) {
   model.value = props.value
 }
@@ -41,6 +37,7 @@ defineExpose({
 <template>
   <div class="input">
     <input
+      @input="emit('update', model)"
       v-bind="$attrs"
       :id="id"
       ref="inputRef"
