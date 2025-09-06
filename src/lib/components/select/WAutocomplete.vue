@@ -24,8 +24,6 @@ const model = defineModel<T>({
 
 if (props.initial != undefined) {
   model.value = props.initial
-  console.log(props.initial.name)
-  console.log(model.value.name)
 }
 
 onKeyStroke(['ArrowDown', 'ArrowUp'], (e) => {
