@@ -24,6 +24,8 @@ const model = defineModel<T>({
 
 if (props.initial != undefined) {
   model.value = props.initial
+  console.log(props.initial.name)
+  console.log(model.value.name)
 }
 
 onKeyStroke(['ArrowDown', 'ArrowUp'], (e) => {
@@ -84,7 +86,7 @@ function handleClickSelection() {
 </script>
 <template>
   <div class="flex flex-col relative">
-    <WInput ref="winput" v-model="model.name">
+    <WInput ref="winput" :value="model.name">
       <template #right-icon>
         <WSelectButton :disabled="!options" @click="handleClickSelection"></WSelectButton>
       </template>

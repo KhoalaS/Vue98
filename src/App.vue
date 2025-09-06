@@ -61,7 +61,7 @@ const options = Array(20)
             <WindowButton type="Close"></WindowButton>
           </div>
           <label for="stuff">Stuff</label>
-          <WInput id="stuff"></WInput>
+          <WInput @update="console.log('update')" id="stuff"></WInput>
           <WAutocomplete :options="options"></WAutocomplete>
           <WSelectNative :options="options"></WSelectNative>
         </WindowBody>
