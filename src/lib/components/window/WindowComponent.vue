@@ -12,7 +12,7 @@ const emit = defineEmits<{
 }>()
 </script>
 <template>
-  <main class="window">
+  <main class="window flex flex-col">
     <div class="title-bar">
       <div class="flex gap-[4px] items-center">
         <slot name="title-icon"> </slot>
@@ -30,7 +30,7 @@ const emit = defineEmits<{
         ></WindowButton>
       </div>
     </div>
-    <div class="window-body">
+    <div class="window-body flex-1 flex">
       <slot name="body"></slot>
     </div>
   </main>
@@ -38,7 +38,6 @@ const emit = defineEmits<{
 
 <style scoped>
 .window {
-  width: fit-content;
   background-color: var(--main-bg-color);
   padding: 4px;
   box-shadow:
