@@ -4,7 +4,7 @@ import { useSlots } from 'vue'
 const slots = useSlots()
 </script>
 <template>
-  <div class="flex flex-col flex-1">
+  <div class="flex flex-col flex-1 min-h-0">
     <div v-if="slots.toolbars" class="toolbars text-sm">
       <slot name="toolbars"></slot>
     </div>

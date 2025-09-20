@@ -6,6 +6,7 @@ import WindowBody from './window/WindowBody.vue'
 import WindowButton from './window/WindowButton.vue'
 import WindowComponent from './window/WindowComponent.vue'
 import WindowToolbar from './window/WindowToolbar.vue'
+import WindowSection from './window/WindowSection.vue'
 import { type WindowControls, WindowControlIcons } from './window/Controls'
 import { TitlebarIcons, type TitlebarIconName } from './window/TitlebarIcons'
 // #endregion
@@ -44,6 +45,7 @@ export {
   WindowButton,
   WindowComponent,
   WindowToolbar,
+  WindowSection,
   type WindowControls,
   WindowControlIcons,
   TitlebarIcons,

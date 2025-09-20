@@ -30,9 +30,7 @@ const emit = defineEmits<{
         ></WindowButton>
       </div>
     </div>
-    <div class="window-body flex-1 flex">
-      <slot name="body"></slot>
-    </div>
+    <slot name="body"></slot>
   </main>
 </template>
 
