@@ -50,7 +50,7 @@ onKeyStroke(['ArrowDown', 'ArrowUp'], (e) => {
     return
   }
 
-  model.value = props.options[nextIndex]
+  model.value = props.options[nextIndex]!
   const nextOption = document.querySelector(`[id="${listId}"] > option[value="${model.value.id}"]`)
   if (nextOption) {
     nextOption.scrollIntoView({
