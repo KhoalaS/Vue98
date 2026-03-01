@@ -1,18 +1,39 @@
 <script setup lang="ts">
 import type { WindowControls } from './Controls'
 import WindowButton from './WindowButton.vue'
+import { useWindowController } from '@/lib/composables/useWindowController'
 
-defineProps<{
+const {
+  controls = ['Close'],
+  title = 'Window',
+  withController = true,
+} = defineProps<{
   title?: string
   controls?: WindowControls[]
+  withController?: boolean
 }>()
 
 const emit = defineEmits<{
   'click:control': [ctrl: WindowControls]
 }>()
+
+const windowId = crypto.randomUUID()
+
+const windowController = useWindowController()
+
+function onClick() {
+  if (withController) {
+    windowController.setActiveWindow(windowId)
+  }
+}
 </script>
 <template>
-  <main tabindex="0" class="window flex flex-col">
+  <main
+    @click="onClick"
+    tabindex="0"
+    :class="{ active: windowController.activeWindow === windowId }"
+    class="window flex flex-col"
+  >
     <div class="title-bar">
       <div class="flex gap-[4px] items-center">
         <slot name="title-icon"> </slot>
@@ -54,7 +75,7 @@ const emit = defineEmits<{
   margin-bottom: 1px;
 }
 
-.window:focus .title-bar {
+.window.active .title-bar {
   background-color: var(--title-bar-blue);
 }
 
