@@ -30,8 +30,6 @@ const options = Array(20)
 
 <template>
   <main style="padding: 12px; background-color: var(--desktop-bg-color); height: 100%">
-    <button>Test</button>
-    <input type="text" />
     <WindowComponent
       title="1 Properties"
       :controls="['Minimize', 'Maximize', 'Close']"

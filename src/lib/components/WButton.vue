@@ -111,6 +111,7 @@ button {
     inset 1px 1px white,
     inset -2px -2px var(--border-gray);
   cursor: pointer;
+  user-select: none;
 }
 
 button:active {
