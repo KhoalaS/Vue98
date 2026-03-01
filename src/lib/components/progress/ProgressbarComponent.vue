@@ -22,7 +22,7 @@ const labelId = crypto.randomUUID()
 </script>
 <template>
   <div>
-    <span :id="labelId">{{ progressLabel }}</span>
+    <span class="text-sm" :id="labelId">{{ progressLabel }}</span>
     <div
       :aria-labelledby="labelId"
       role="progressbar"

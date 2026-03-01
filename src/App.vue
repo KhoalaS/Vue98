@@ -60,10 +60,11 @@ const options = Array(20)
             ></ProgressbarComponent>
             <WindowButton type="Close"></WindowButton>
           </div>
-          <label for="stuff">Stuff</label>
+          <label class="text-sm" for="stuff">Stuff</label>
           <WInput @update="console.log('update')" id="stuff"></WInput>
           <WAutocomplete :options="options"></WAutocomplete>
           <WSelectNative :options="options"></WSelectNative>
+          <WButton>OK</WButton>
         </WindowBody>
       </template>
     </WindowComponent>
@@ -77,6 +78,29 @@ const options = Array(20)
       <TaskbarDivider class="ml-auto"></TaskbarDivider>
       <StatusBlock></StatusBlock>
     </TaskbarComponent>
-    <WButton>OK</WButton>
+
+    <WindowComponent
+      title="1 Properties"
+      :controls="['Minimize', 'Maximize', 'Close']"
+      class="w-50"
+    >
+      <template #title-icon>
+        <TitlebarIcon icon="document"></TitlebarIcon>
+      </template>
+      <template #body>
+        <WindowBody>
+          <template #toolbars>
+            <div class="flex h-6 p-0.5 items-center">
+              <TaskbarGroupheader></TaskbarGroupheader>
+              <div>Edit</div>
+            </div>
+          </template>
+          <label class="text-sm">Select</label>
+          <WAutocomplete :options="options"></WAutocomplete>
+          <label class="text-sm">Using native select</label>
+          <WSelectNative :options="options"></WSelectNative>
+        </WindowBody>
+      </template>
+    </WindowComponent>
   </main>
 </template>
