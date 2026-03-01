@@ -93,7 +93,7 @@ function handleClickSelection() {
       :id="listId"
       role="combobox"
       v-show="showSelection"
-      class="absolute overflow-y-auto top-[21px] z-20 max-h-[167px] w-full bg-white border-[1px] border-black"
+      class="absolute overflow-y-auto top-[21px] z-20 max-h-[167px] w-full bg-white border border-black"
     >
       <option
         class="text-sm px-0.5"

@@ -79,7 +79,6 @@ button:active > .label {
     black 2px
   );
 }
-
 .dash.bottom::before {
   box-sizing: border-box;
   content: '';

@@ -35,7 +35,7 @@ const options = Array(20)
     <WindowComponent
       title="1 Properties"
       :controls="['Minimize', 'Maximize', 'Close']"
-      class="w-[200px]"
+      class="w-50"
     >
       <template #title-icon>
         <TitlebarIcon icon="document"></TitlebarIcon>
@@ -43,11 +43,11 @@ const options = Array(20)
       <template #body>
         <WindowBody>
           <template #toolbars>
-            <div class="flex h-[24px] p-[2px] items-center">
+            <div class="flex h-6 p-0.5 items-center">
               <TaskbarGroupheader></TaskbarGroupheader>
               <div>1s</div>
             </div>
-            <div class="flex h-[24px] p-[2px] items-center">
+            <div class="flex h-6 p-0.5 items-center">
               <TaskbarGroupheader></TaskbarGroupheader>
               <div>Edit</div>
             </div>
