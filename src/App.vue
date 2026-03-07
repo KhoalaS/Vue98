@@ -1,21 +1,22 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ProgressbarComponent from './lib/components/progress/ProgressbarComponent.vue'
-import WindowComponent from './lib/components/window/WindowComponent.vue'
-import TaskbarComponent from './lib/components/taskbar/TaskbarComponent.vue'
-import TaskbarGroup from './lib/components/taskbar/TaskbarGroup.vue'
-import TaskbarDivider from './lib/components/taskbar/TaskbarDivider.vue'
-import StatusBlock from './lib/components/taskbar/StatusBlock.vue'
-import StartButton from './lib/components/taskbar/StartButton.vue'
-import TabComponent from './lib/components/taskbar/TabComponent.vue'
-import WButton from './lib/components/WButton.vue'
-import WindowButton from './lib/components/window/WindowButton.vue'
-import TitlebarIcon from './lib/components/window/TitlebarIcon.vue'
-import WindowBody from './lib/components/window/WindowBody.vue'
-import TaskbarGroupheader from './lib/components/taskbar/TaskbarGroupheader.vue'
-import WInput from './lib/components/input/WInput.vue'
-import WAutocomplete from './lib/components/select/WAutocomplete.vue'
-import WSelectNative from './lib/components/select/WSelectNative.vue'
+import ProgressbarComponent from '@/lib/components/progress/ProgressbarComponent.vue'
+import WindowComponent from '@/lib/components/window/WindowComponent.vue'
+import TaskbarComponent from '@/lib/components/taskbar/TaskbarComponent.vue'
+import TaskbarGroup from '@/lib/components/taskbar/TaskbarGroup.vue'
+import TaskbarDivider from '@/lib/components/taskbar/TaskbarDivider.vue'
+import StatusBlock from '@/lib/components/taskbar/StatusBlock.vue'
+import StartButton from '@/lib/components/taskbar/StartButton.vue'
+import TabComponent from '@/lib/components/taskbar/TabComponent.vue'
+import WButton from '@/lib/components/WButton.vue'
+import WindowButton from '@/lib/components/window/WindowButton.vue'
+import TitlebarIcon from '@/lib/components/window/TitlebarIcon.vue'
+import WindowBody from '@/lib/components/window/WindowBody.vue'
+import TaskbarGroupheader from '@/lib/components/taskbar/TaskbarGroupheader.vue'
+import WInput from '@/lib/components/input/WInput.vue'
+import WAutocomplete from '@/lib/components/select/WAutocomplete.vue'
+import WSelectNative from '@/lib/components/select/WSelectNative.vue'
+import WindowMenubar from '@/lib/components/window/menubar/WindowMenubar.vue'
 
 const barPercent = ref(0.3)
 const options = Array(20)
@@ -86,18 +87,7 @@ const options = Array(20)
         <TitlebarIcon icon="document"></TitlebarIcon>
       </template>
       <template #body>
-        <WindowBody>
-          <template #toolbars>
-            <div class="flex h-6 p-0.5 items-center">
-              <TaskbarGroupheader></TaskbarGroupheader>
-              <div>Edit</div>
-            </div>
-          </template>
-          <label class="text-sm">Select</label>
-          <WAutocomplete :options="options"></WAutocomplete>
-          <label class="text-sm">Using native select</label>
-          <WSelectNative :options="options"></WSelectNative>
-        </WindowBody>
+        <WindowMenubar></WindowMenubar>
       </template>
     </WindowComponent>
   </main>
