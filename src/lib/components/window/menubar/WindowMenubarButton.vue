@@ -18,6 +18,7 @@ const restLabel = computed(() => props.label.substring(1))
 
 <style scoped>
 .menu-button {
+  position: relative;
   width: 32px;
   display: flex;
   align-items: center;
@@ -33,8 +34,15 @@ const restLabel = computed(() => props.label.substring(1))
     inset -1px -1px var(--border-gray);
 }
 
+.menu-button:active {
+  cursor: pointer;
+  background-color: var(--main-bg-color);
+  box-shadow:
+    inset 1px 1px var(--border-gray),
+    inset -1px -1px var(--border-white);
+}
+
 .upper {
-  position: relative;
   margin-left: 1px;
 }
 .upper::before {
@@ -45,5 +53,15 @@ const restLabel = computed(() => props.label.substring(1))
   width: calc(100% + 1px);
   height: 1px;
   background-color: black;
+}
+
+.menu-button > span {
+  position: relative;
+  user-select: none;
+}
+
+.menu-button:active span {
+  top: 1px;
+  left: 1px;
 }
 </style>
