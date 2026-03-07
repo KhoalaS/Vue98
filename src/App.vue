@@ -12,11 +12,11 @@ import WButton from '@/lib/components/WButton.vue'
 import WindowButton from '@/lib/components/window/WindowButton.vue'
 import TitlebarIcon from '@/lib/components/window/TitlebarIcon.vue'
 import WindowBody from '@/lib/components/window/WindowBody.vue'
-import TaskbarGroupheader from '@/lib/components/taskbar/TaskbarGroupheader.vue'
 import WInput from '@/lib/components/input/WInput.vue'
 import WAutocomplete from '@/lib/components/select/WAutocomplete.vue'
 import WSelectNative from '@/lib/components/select/WSelectNative.vue'
 import WindowMenubar from '@/lib/components/window/menubar/WindowMenubar.vue'
+import type { WindowMenubarButton } from '@/lib/components/window/menubar/WindowMenubarButton'
 
 const barPercent = ref(0.3)
 const options = Array(20)
@@ -27,6 +27,29 @@ const options = Array(20)
       name: 'Dummy' + idx,
     }
   })
+
+const menuButtons: WindowMenubarButton[] = [
+  {
+    id: 'file',
+    label: 'file',
+  },
+  {
+    id: 'edit',
+    label: 'edit',
+  },
+  {
+    id: 'view',
+    label: 'view',
+  },
+  {
+    id: 'go',
+    label: 'go',
+  },
+  {
+    id: 'help',
+    label: 'help',
+  },
+]
 </script>
 
 <template>
@@ -42,14 +65,8 @@ const options = Array(20)
       <template #body>
         <WindowBody>
           <template #toolbars>
-            <div class="flex h-6 p-0.5 items-center">
-              <TaskbarGroupheader></TaskbarGroupheader>
-              <div>1s</div>
-            </div>
-            <div class="flex h-6 p-0.5 items-center">
-              <TaskbarGroupheader></TaskbarGroupheader>
-              <div>Edit</div>
-            </div>
+            <WindowMenubar :menu-buttons="menuButtons"></WindowMenubar>
+            <WindowMenubar :menu-buttons="menuButtons"></WindowMenubar>
           </template>
           <div>
             <ProgressbarComponent
@@ -77,18 +94,5 @@ const options = Array(20)
       <TaskbarDivider class="ml-auto"></TaskbarDivider>
       <StatusBlock></StatusBlock>
     </TaskbarComponent>
-
-    <WindowComponent
-      title="1 Properties"
-      :controls="['Minimize', 'Maximize', 'Close']"
-      class="w-50"
-    >
-      <template #title-icon>
-        <TitlebarIcon icon="document"></TitlebarIcon>
-      </template>
-      <template #body>
-        <WindowMenubar></WindowMenubar>
-      </template>
-    </WindowComponent>
   </main>
 </template>

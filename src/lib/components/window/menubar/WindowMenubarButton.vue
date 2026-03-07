@@ -1,8 +1,11 @@
 <script setup lang="ts">
 import { computed } from 'vue'
+import type { WindowMenubarButton } from './WindowMenubarButton'
 
-const props = defineProps<{
-  label: string
+const props = defineProps<WindowMenubarButton>()
+
+const emit = defineEmits<{
+  click: [buttonId: string]
 }>()
 
 const firstLabelLetter = computed(() => props.label.charAt(0).toUpperCase())
@@ -10,7 +13,7 @@ const restLabel = computed(() => props.label.substring(1))
 </script>
 
 <template>
-  <div :aria-label="label" role="button" class="menu-button">
+  <div :aria-label="label" role="button" class="menu-button" @click="emit('click', props.id)">
     <span class="upper">{{ firstLabelLetter }}</span>
     <span>{{ restLabel }}</span>
   </div>
