@@ -5,7 +5,6 @@ import TitlebarIcon from './window/TitlebarIcon.vue'
 import WindowBody from './window/WindowBody.vue'
 import WindowButton from './window/WindowButton.vue'
 import WindowComponent from './window/WindowComponent.vue'
-import WindowToolbar from './window/WindowToolbar.vue'
 import WindowSection from './window/WindowSection.vue'
 import { type WindowControls, WindowControlIcons } from './window/Controls'
 import { TitlebarIcons, type TitlebarIconName } from './window/TitlebarIcons'
@@ -44,7 +43,6 @@ export {
   WindowBody,
   WindowButton,
   WindowComponent,
-  WindowToolbar,
   WindowSection,
   type WindowControls,
   WindowControlIcons,
@@ -66,3 +64,5 @@ export {
   SelectIcons,
   WSelectNative,
 }
+
+export * from './window/menubar'

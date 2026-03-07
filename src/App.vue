@@ -16,7 +16,7 @@ import WInput from '@/lib/components/input/WInput.vue'
 import WAutocomplete from '@/lib/components/select/WAutocomplete.vue'
 import WSelectNative from '@/lib/components/select/WSelectNative.vue'
 import WindowMenubar from '@/lib/components/window/menubar/WindowMenubar.vue'
-import type { WindowMenubarButton } from '@/lib/components/window/menubar/WindowMenubarButton'
+import type { WindowMenubarButtonProps } from '@/lib/components/window/menubar/WindowMenubarButton'
 
 const barPercent = ref(0.3)
 const options = Array(20)
@@ -28,7 +28,7 @@ const options = Array(20)
     }
   })
 
-const menuButtons: WindowMenubarButton[] = [
+const menuButtons: WindowMenubarButtonProps[] = [
   {
     id: 'file',
     label: 'file',

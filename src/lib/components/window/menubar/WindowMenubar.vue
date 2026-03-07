@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import TaskbarGroupheader from '@/lib/components/taskbar/TaskbarGroupheader.vue'
-import WindowMenubarButtonComponent from './WindowMenubarButton.vue'
-import type { WindowMenubarButton } from './WindowMenubarButton'
+import WindowMenubarButton from './WindowMenubarButton.vue'
+import type { WindowMenubarButtonProps } from './WindowMenubarButton'
 
 defineProps<{
-  menuButtons: WindowMenubarButton[]
+  menuButtons: WindowMenubarButtonProps[]
 }>()
 
 const emit = defineEmits<{
@@ -20,12 +20,12 @@ function onMenuButtonClick(buttonId: string) {
     <div class="flex h-6 p-0.5 items-center">
       <TaskbarGroupheader class="mr-1"></TaskbarGroupheader>
       <div class="menu-items">
-        <WindowMenubarButtonComponent
+        <WindowMenubarButton
           v-for="button in menuButtons"
           :key="button.id"
           v-bind="button"
           @click="onMenuButtonClick"
-        ></WindowMenubarButtonComponent>
+        ></WindowMenubarButton>
       </div>
     </div>
   </div>

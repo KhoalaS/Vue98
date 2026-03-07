@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { WindowMenubarButton } from './WindowMenubarButton'
+import type { WindowMenubarButtonProps } from './WindowMenubarButton'
 
-const props = defineProps<WindowMenubarButton>()
+const props = defineProps<WindowMenubarButtonProps>()
 
 const emit = defineEmits<{
   click: [buttonId: string]
