@@ -1,39 +1,44 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import type { WindowMenuGroup } from './WindowMenu'
-import WindowMenuItem from './WindowMenuItem.vue'
+import type { MenuRow } from './WindowMenuRow'
+import WindowMenuRow from './WindowMenuRow.vue'
 
-defineProps<{
+const props = defineProps<{
   menuItemGroups: WindowMenuGroup[]
 }>()
+
+const groupsAggregate = computed(() => {
+  const rows: MenuRow[] = []
+  for (const group of props.menuItemGroups) {
+    for (const item of group.menuItems) {
+      rows.push({
+        item,
+        type: 'item',
+      })
+    }
+    rows.push({
+      type: 'divider',
+    })
+  }
+
+  return rows
+})
 </script>
 <template>
-  <div class="menu p-0.75" role="menu">
-    <div class="group" :key="idx" v-for="(group, idx) in menuItemGroups">
-      <WindowMenuItem
-        :menu-item="item"
-        :key="item.id"
-        v-for="item in group.menuItems"
-      ></WindowMenuItem>
-    </div>
+  <div class="menu p-0.75 w-fit" role="menu">
+    <table>
+      <WindowMenuRow :key="idx" :row="row" v-for="(row, idx) in groupsAggregate"></WindowMenuRow>
+    </table>
   </div>
 </template>
 <style scoped>
 .menu {
-  width: fit-content;
   background-color: var(--main-bg-color);
   box-shadow:
     inset -1px -1px var(--border-black),
     inset 1px 1px var(--main-bg-color),
     inset -2px -2px var(--border-gray),
     inset 2px 2px var(--border-white);
-}
-
-.group:not(:last-child):after {
-  content: '';
-  display: block;
-  height: 2px;
-  margin: 4px 1px;
-  border-top: 1px solid var(--border-gray);
-  border-bottom: 1px solid var(--border-white);
 }
 </style>

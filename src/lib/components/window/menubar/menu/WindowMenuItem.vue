@@ -6,23 +6,15 @@ defineProps<{
 }>()
 </script>
 <template>
-  <div role="menuitem" class="menu-item h-4.25 w-full text-sm select-none">
-    <span>
+  <tr role="menuitem" class="menu-item h-4.25 w-full text-sm select-none">
+    <td>
       {{ menuItem.label }}
-    </span>
-    <span>{{ menuItem.shortCut?.label }}</span>
-  </div>
+    </td>
+    <td>{{ menuItem.shortCut?.label ?? '' }}</td>
+  </tr>
 </template>
 
 <style scoped>
-.menu-item {
-  padding-left: 21px;
-  padding-right: 19px;
-  display: flex;
-  justify-content: space-between;
-  gap: 10px;
-  align-items: center;
-}
 .menu-item:hover {
   background-color: var(--select-blue);
   cursor: pointer;
