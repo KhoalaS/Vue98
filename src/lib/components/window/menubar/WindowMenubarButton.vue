@@ -56,6 +56,7 @@ const restLabel = computed(() => props.label.substring(1))
   width: calc(100% + 1px);
   height: 1px;
   background-color: black;
+  bottom: 1px;
 }
 
 .menu-button > span {

@@ -17,6 +17,8 @@ import WAutocomplete from '@/lib/components/select/WAutocomplete.vue'
 import WSelectNative from '@/lib/components/select/WSelectNative.vue'
 import WindowMenubar from '@/lib/components/window/menubar/WindowMenubar.vue'
 import type { WindowMenubarButtonProps } from '@/lib/components/window/menubar/WindowMenubarButton'
+import WindowMenu from './lib/components/window/menubar/menu/WindowMenu.vue'
+import type { WindowMenuGroup } from './lib/components/window/menubar/menu/WindowMenu'
 
 const barPercent = ref(0.3)
 const options = Array(20)
@@ -50,10 +52,42 @@ const menuButtons: WindowMenubarButtonProps[] = [
     label: 'help',
   },
 ]
+
+const menuItemGroups: WindowMenuGroup[] = [
+  {
+    menuItems: [
+      {
+        id: 'a',
+        label: 'Paste Shortcut',
+      },
+    ],
+  },
+  {
+    menuItems: [
+      {
+        id: 'undo',
+        label: 'Undo',
+        shortCut: {
+          combination: 'ctrl,z',
+          label: 'Ctrl+Z',
+        },
+      },
+      {
+        id: 'cut',
+        label: 'Cut',
+        shortCut: {
+          combination: 'ctrl,x',
+          label: 'Ctrl+X',
+        },
+      },
+    ],
+  },
+]
 </script>
 
 <template>
   <main style="padding: 12px; background-color: var(--desktop-bg-color); height: 100%">
+    <WindowMenu :menu-item-groups="menuItemGroups"></WindowMenu>
     <WindowComponent
       title="1 Properties"
       :controls="['Minimize', 'Maximize', 'Close']"
