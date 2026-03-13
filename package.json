@@ -1,7 +1,7 @@
 {
   "name": "vue-98",
   "version": "0.0.0",
-  "private": true,
+  "private": false,
   "type": "module",
   "types": "./dist/index.es.d.ts",
   "module": "./dist/index.es.js",
