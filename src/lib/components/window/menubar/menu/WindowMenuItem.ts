@@ -5,6 +5,7 @@ export type WindowMenuItem = {
   label: string
   shortCut?: WindowMenuItemShortCut
   icon?: WindowMenuItemIconType
+  disabled?: boolean
 }
 
 export type WindowMenuItemShortCut = {

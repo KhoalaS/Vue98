@@ -81,6 +81,7 @@ const menuItemGroups: WindowMenuGroup[] = [
           label: 'Ctrl+X',
         },
         icon: 'check',
+        disabled: true,
       },
     ],
   },
