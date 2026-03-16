@@ -6,7 +6,7 @@ const props = defineProps<{ icon: WindowMenuItemIconType }>()
 const _icon = WindowMenuItemIcons[props.icon]
 </script>
 <template>
-  <div class="mr-1 w-4.25 h-4.25 relative">
+  <div class="w-full h-full relative">
     <img
       class="absolute"
       :style="{

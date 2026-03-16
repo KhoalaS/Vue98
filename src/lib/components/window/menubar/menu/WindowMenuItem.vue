@@ -23,15 +23,17 @@ if (props.menuItem.icon) {
     }"
   >
     <td>
-      <WindowMenuItemIconComponent
-        class="icon"
-        :class="{
-          disabled: menuItem.disabled,
-        }"
-        v-if="menuItem.icon"
-        :icon="menuItem.icon"
-        :disabled="menuItem.disabled"
-      ></WindowMenuItemIconComponent>
+      <div class="h-4.25 w-4.25 mr-1">
+        <WindowMenuItemIconComponent
+          class="icon"
+          :class="{
+            disabled: menuItem.disabled,
+          }"
+          v-if="menuItem.icon"
+          :icon="menuItem.icon"
+          :disabled="menuItem.disabled"
+        ></WindowMenuItemIconComponent>
+      </div>
     </td>
     <td>
       <span>
@@ -39,6 +41,19 @@ if (props.menuItem.icon) {
       </span>
     </td>
     <td>{{ menuItem.shortCut?.label ?? '' }}</td>
+    <td>
+      <div class="h-4.25 w-4.25 ml-1">
+        <WindowMenuItemIconComponent
+          class="icon"
+          :class="{
+            disabled: menuItem.disabled,
+          }"
+          v-if="menuItem.subMenu"
+          icon="caretRight"
+          :disabled="menuItem.disabled"
+        ></WindowMenuItemIconComponent>
+      </div>
+    </td>
   </tr>
 </template>
 

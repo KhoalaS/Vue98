@@ -82,6 +82,9 @@ const menuItemGroups: WindowMenuGroup[] = [
         },
         icon: 'check',
         disabled: true,
+        subMenu: {
+          menuItems: [],
+        },
       },
     ],
   },
