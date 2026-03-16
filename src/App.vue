@@ -71,6 +71,7 @@ const menuItemGroups: WindowMenuGroup[] = [
           combination: 'ctrl,z',
           label: 'Ctrl+Z',
         },
+        icon: 'circle',
       },
       {
         id: 'cut',
@@ -79,6 +80,7 @@ const menuItemGroups: WindowMenuGroup[] = [
           combination: 'ctrl,x',
           label: 'Ctrl+X',
         },
+        icon: 'check',
       },
     ],
   },

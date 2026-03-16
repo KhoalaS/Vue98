@@ -6,7 +6,7 @@ defineProps<{ row: MenuRow }>()
 </script>
 <template>
   <tr aria-hidden="true" class="divider" v-if="row.type === 'divider'">
-    <td colspan="2">
+    <td colspan="3">
       <div class="content"></div>
     </td>
   </tr>
