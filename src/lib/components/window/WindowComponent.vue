@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import type { WindowControls } from './Controls'
 import WindowButton from './WindowButton.vue'
-import { useWindowController } from '@/lib/composables/useWindowController'
+import { useWindowController } from '@composables/index'
 
 const {
   controls = ['Close'],

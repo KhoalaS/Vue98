@@ -1,24 +1,27 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ProgressbarComponent from '@/lib/components/progress/ProgressbarComponent.vue'
-import WindowComponent from '@/lib/components/window/WindowComponent.vue'
-import TaskbarComponent from '@/lib/components/taskbar/TaskbarComponent.vue'
-import TaskbarGroup from '@/lib/components/taskbar/TaskbarGroup.vue'
-import TaskbarDivider from '@/lib/components/taskbar/TaskbarDivider.vue'
-import StatusBlock from '@/lib/components/taskbar/StatusBlock.vue'
-import StartButton from '@/lib/components/taskbar/StartButton.vue'
-import TabComponent from '@/lib/components/taskbar/TabComponent.vue'
-import WButton from '@/lib/components/WButton.vue'
-import WindowButton from '@/lib/components/window/WindowButton.vue'
-import TitlebarIcon from '@/lib/components/window/TitlebarIcon.vue'
-import WindowBody from '@/lib/components/window/WindowBody.vue'
-import WAutocomplete from '@/lib/components/select/WAutocomplete.vue'
-import WSelectNative from '@/lib/components/select/WSelectNative.vue'
-import WindowMenubar from '@/lib/components/window/menubar/WindowMenubar.vue'
-import type { WindowMenubarButtonProps } from '@/lib/components/window/menubar/WindowMenubarButton'
-import WindowMenu from './lib/components/window/menubar/menu/WindowMenu.vue'
-import type { WindowMenuGroup } from './lib/components/window/menubar/menu/WindowMenu'
-import WInputV2 from './lib/components/input/WInputV2.vue'
+import { ProgressbarComponent } from '@components/progress'
+import {
+  WindowComponent,
+  WindowButton,
+  TitlebarIcon,
+  WindowBody,
+  WindowMenubar,
+  WindowMenu,
+  type WindowMenubarButtonProps,
+  type WindowMenuGroup,
+} from '@components/window'
+import {
+  TaskbarComponent,
+  TaskbarGroup,
+  TabComponent,
+  TaskbarDivider,
+  StatusBlock,
+  StartButton,
+} from '@components/taskbar'
+import { WButton } from '@components/button'
+import { WAutocomplete, WSelectNative } from '@components/select'
+import { WInputV2 } from '@components/input'
 
 const barPercent = ref(30)
 const options = Array(20)

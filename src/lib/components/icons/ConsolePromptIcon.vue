@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import image from '../../assets/console_prompt.ico'
+import image from '@assets/console_prompt.ico'
 const { size = 16 } = defineProps<{
   size?: number
 }>()

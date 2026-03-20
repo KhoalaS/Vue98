@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="T extends { id: string; name: string }">
 import { ref, useTemplateRef } from 'vue'
-import WInput from '../input/WInput.vue'
+import { WInput } from '@components/input'
 import WSelectButton from './WSelectButton.vue'
 import { onKeyStroke } from '@vueuse/core'
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import TaskbarGroupheader from '@/lib/components/taskbar/TaskbarGroupheader.vue'
+import { TaskbarGroupheader } from '@components/taskbar'
 import WindowMenubarButton from './WindowMenubarButton.vue'
 import type { WindowMenubarButtonProps } from './WindowMenubarButton'
 

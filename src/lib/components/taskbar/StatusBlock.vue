@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LoudspeakerIcon from '../icons/LoudspeakerIcon.vue'
+import { LoudspeakerIcon } from '@components/icons'
 </script>
 <template>
   <div class="status-bar">

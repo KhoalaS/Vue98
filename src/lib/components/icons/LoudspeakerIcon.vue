@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import image from '../../assets/loudspeaker_rays.ico'
+import image from '@assets/loudspeaker_rays.ico'
 const { size = 24 } = defineProps<{
   size?: number
 }>()

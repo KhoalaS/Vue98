@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import image from '../../assets/win98.ico'
+import image from '@assets/win98.ico'
 const { size = 16 } = defineProps<{
   size?: number
 }>()
