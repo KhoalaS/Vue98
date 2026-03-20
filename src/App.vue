@@ -20,7 +20,7 @@ import type { WindowMenubarButtonProps } from '@/lib/components/window/menubar/W
 import WindowMenu from './lib/components/window/menubar/menu/WindowMenu.vue'
 import type { WindowMenuGroup } from './lib/components/window/menubar/menu/WindowMenu'
 
-const barPercent = ref(0.3)
+const barPercent = ref(30)
 const options = Array(20)
   .fill(null)
   .map((_, idx) => {
@@ -112,7 +112,6 @@ const menuItemGroups: WindowMenuGroup[] = [
             <ProgressbarComponent
               progress-label="Progress"
               v-model="barPercent"
-              :max="1"
             ></ProgressbarComponent>
             <WindowButton type="Close"></WindowButton>
           </div>
