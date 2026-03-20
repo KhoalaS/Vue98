@@ -1,10 +1,7 @@
 <script setup lang="ts">
-import { useTemplateRef, watch } from 'vue'
+import { useTemplateRef } from 'vue'
 
-// Legacy component thats needed in another project
-
-const props = defineProps<{
-  value?: string | number | boolean
+defineProps<{
   id?: string
 }>()
 
@@ -15,25 +12,6 @@ const model = defineModel<string | number | boolean>({
   default: '',
 })
 
-const emit = defineEmits<{
-  update: [value: string | number | boolean]
-  valueChange: []
-}>()
-
-if (props.value != undefined) {
-  model.value = props.value
-}
-
-watch(
-  () => props.value,
-  (newVal) => {
-    if (newVal !== undefined && newVal !== model.value) {
-      model.value = newVal
-      emit('valueChange')
-    }
-  },
-)
-
 defineExpose({
   inputRef,
 })
@@ -41,7 +19,6 @@ defineExpose({
 <template>
   <div class="input">
     <input
-      @input="emit('update', model)"
       v-bind="$attrs"
       :id="id"
       ref="inputRef"

@@ -12,13 +12,13 @@ import WButton from '@/lib/components/WButton.vue'
 import WindowButton from '@/lib/components/window/WindowButton.vue'
 import TitlebarIcon from '@/lib/components/window/TitlebarIcon.vue'
 import WindowBody from '@/lib/components/window/WindowBody.vue'
-import WInput from '@/lib/components/input/WInput.vue'
 import WAutocomplete from '@/lib/components/select/WAutocomplete.vue'
 import WSelectNative from '@/lib/components/select/WSelectNative.vue'
 import WindowMenubar from '@/lib/components/window/menubar/WindowMenubar.vue'
 import type { WindowMenubarButtonProps } from '@/lib/components/window/menubar/WindowMenubarButton'
 import WindowMenu from './lib/components/window/menubar/menu/WindowMenu.vue'
 import type { WindowMenuGroup } from './lib/components/window/menubar/menu/WindowMenu'
+import WInputV2 from './lib/components/input/WInputV2.vue'
 
 const barPercent = ref(30)
 const options = Array(20)
@@ -116,7 +116,7 @@ const menuItemGroups: WindowMenuGroup[] = [
             <WindowButton type="Close"></WindowButton>
           </div>
           <label class="text-sm" for="stuff">Stuff</label>
-          <WInput @update="console.log('update')" id="stuff"></WInput>
+          <WInputV2 id="stuff"></WInputV2>
           <WAutocomplete :options="options"></WAutocomplete>
           <WSelectNative :options="options"></WSelectNative>
           <WButton>OK</WButton>
