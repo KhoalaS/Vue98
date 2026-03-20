@@ -7,6 +7,7 @@
   "module": "./dist/index.es.js",
   "style": "./dist/main.css",
   "files": [
+    "src",
     "dist",
     "README.md"
   ],
