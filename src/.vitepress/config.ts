@@ -8,20 +8,26 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
-      { text: 'Examples', link: '/markdown-examples' },
+      { text: 'Components', link: '/components' },
     ],
 
     sidebar: [
       {
-        text: 'Examples',
         items: [
-          { text: 'Markdown Examples', link: '/markdown-examples' },
-          { text: 'Runtime API Examples', link: '/api-examples' },
+          {
+            text: 'Components',
+            items: [
+              {
+                text: 'WButton',
+                link: '/components/button',
+              },
+            ],
+          },
         ],
       },
     ],
 
-    socialLinks: [{ icon: 'github', link: 'https://github.com/vuejs/vitepress' }],
+    socialLinks: [{ icon: 'github', link: 'https://github.com/KhoalaS/Vue98' }],
   },
   rewrites: {
     'lib/:pkg/:slug*': ':pkg/:slug*',

@@ -5,21 +5,14 @@ layout: home
 hero:
   name: "Vue-98"
   text: "Vue-98 docs"
-  tagline: My great project tagline
+  tagline: Vue components in Windows 98 Second Edition style 
   actions:
     - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
+      text: Components
+      link: /components
 
 features:
   - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
     details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
 ---
 
