@@ -1,0 +1,10 @@
+:root {
+  --vp-font-family-base: 'Pixelated MS Sans Serif';
+  --vp-font-family-mono: 'monospace';
+}
+
+/* Add this to override code blocks */
+.vp-doc code,
+.vp-doc pre code {
+  font-family: monospace !important;
+}
