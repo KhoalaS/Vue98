@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite'
 import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
@@ -8,6 +9,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: 'Home', link: '/' },
+      { text: 'Get Started', link: '/guide' },
       { text: 'Components', link: '/components' },
     ],
 
@@ -21,6 +23,10 @@ export default defineConfig({
                 text: 'WButton',
                 link: '/components/button',
               },
+              {
+                text: 'Taskbar',
+                link: '/components/taskbar',
+              },
             ],
           },
         ],
@@ -31,5 +37,8 @@ export default defineConfig({
   },
   rewrites: {
     'lib/:pkg/:slug*': ':pkg/:slug*',
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 })
