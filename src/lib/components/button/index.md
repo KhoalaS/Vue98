@@ -6,7 +6,9 @@ import WButton from './WButton.vue'
 
 ## Demo
 
-<WButton>Hello</WButton>
+<div class="grid-center">
+    <WButton>Hello</WButton>
+</div>
 
 ## Usage
 
