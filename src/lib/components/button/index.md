@@ -6,8 +6,9 @@ import WButton from './WButton.vue'
 
 ## Demo
 
-<div class="grid-center">
+<div class="flex flex-row gap-2 justify-center">
     <WButton>Hello</WButton>
+    <WButton :disabled="true" >Disabled</WButton>
 </div>
 
 ## Usage
@@ -19,5 +20,6 @@ import { WButton } from "vue-98"
 
 <template>
     <WButton>Hello</WButton>
+    <WButton :disabled="true" >Disabled</WButton>
 </template>
 ```
