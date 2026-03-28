@@ -21,11 +21,14 @@
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "peerDependencies": {
-    "vue": "^3.5.30",
-    "pinia": "^3.0.4"
+    "pinia": "^3.0.4",
+    "vue": "^3.5.30"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.2.1",
@@ -54,6 +57,7 @@
     "vite": "^8.0.1",
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-vue-devtools": "^8.1.0",
+    "vitepress": "2.0.0-alpha.17",
     "vitest": "^4.1.0",
     "vue-tsc": "^3.2.5"
   },
