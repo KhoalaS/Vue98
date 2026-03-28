@@ -1,21 +1,19 @@
 <script setup lang="ts">
-import { computed } from 'vue'
 import type { WindowMenubarButtonProps } from './WindowMenubarButton'
+import MnemonicLabel from '@components/common/MnemonicLabel.vue'
 
 const props = defineProps<WindowMenubarButtonProps>()
 
 const emit = defineEmits<{
   click: [buttonId: string]
 }>()
-
-const firstLabelLetter = computed(() => props.label.charAt(0).toUpperCase())
-const restLabel = computed(() => props.label.substring(1))
 </script>
 
 <template>
   <div :aria-label="label" role="button" class="menu-button" @click="emit('click', props.id)">
-    <span class="upper">{{ firstLabelLetter }}</span>
-    <span>{{ restLabel }}</span>
+    <slot>
+      <MnemonicLabel class="label relative" :label="label"></MnemonicLabel>
+    </slot>
   </div>
 </template>
 
@@ -45,26 +43,11 @@ const restLabel = computed(() => props.label.substring(1))
     inset -1px -1px var(--border-white);
 }
 
-.upper {
-  margin-left: 1px;
-}
-.upper::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -1px;
-  width: calc(100% + 1px);
-  height: 1px;
-  background-color: black;
-  bottom: 1px;
-}
-
-.menu-button > span {
-  position: relative;
+.label {
   user-select: none;
 }
 
-.menu-button:active span {
+.menu-button:active .label {
   top: 1px;
   left: 1px;
 }
