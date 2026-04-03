@@ -16,10 +16,11 @@ if (props.menuItem.icon) {
 <template>
   <tr
     role="menuitem"
-    class="menu-item h-4.25 w-full text-sm select-none"
+    class="menu-item w-full text-sm select-none"
     :class="{
       disabled: menuItem.disabled,
       'simple-icon': icon?.simple,
+      'complex-icon': icon?.simple !== undefined && !icon.simple,
     }"
   >
     <td>
@@ -41,7 +42,7 @@ if (props.menuItem.icon) {
       </span>
     </td>
     <td>{{ menuItem.shortCut?.label ?? '' }}</td>
-    <td>
+    <td class="caret">
       <div class="h-4.25 w-4.25 ml-1">
         <WindowMenuItemIconComponent
           class="icon"
@@ -70,10 +71,21 @@ if (props.menuItem.icon) {
 tr.disabled {
   color: var(--text-inactive);
 }
-.menu-item:hover .icon:deep(img) {
-  filter: invert(100%);
+
+.menu-item.simple-icon {
+  height: 17px;
 }
 
+.menu-item.complex-icon {
+  height: 20px;
+}
+
+.menu-item.simple-icon:hover .icon:deep(img) {
+  filter: invert(100%);
+}
+.menu-item:hover > .caret .icon:deep(img) {
+  filter: invert(100%);
+}
 .menu-item.disabled.simple-icon .icon:deep(img) {
   filter: invert(53%);
 }

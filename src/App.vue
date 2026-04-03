@@ -70,6 +70,7 @@ const menuItemGroups: WindowMenuGroup[] = [
       {
         id: 'undo',
         label: 'Undo',
+        disabled: true,
         shortCut: {
           combination: 'ctrl,z',
           label: 'Ctrl+Z',
@@ -83,8 +84,7 @@ const menuItemGroups: WindowMenuGroup[] = [
           combination: 'ctrl,x',
           label: 'Ctrl+X',
         },
-        icon: 'check',
-        disabled: true,
+        icon: 'folder',
         subMenu: {
           menuItems: [],
         },
