@@ -22,7 +22,7 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
       cssFileName: 'main',
     },
-    rollupOptions: {
+    rolldownOptions: {
       external: ['vue', 'pinia'],
     },
   },

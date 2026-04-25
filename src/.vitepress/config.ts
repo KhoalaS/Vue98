@@ -39,6 +39,6 @@ export default defineConfig({
     'lib/:pkg/:slug*': ':pkg/:slug*',
   },
   vite: {
-    plugins: [tailwindcss()],
+    plugins: [],
   },
 })
