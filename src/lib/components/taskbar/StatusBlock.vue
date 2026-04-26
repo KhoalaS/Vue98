@@ -7,7 +7,9 @@ import { LoudspeakerIcon } from '@components/icons'
       <div class="flex items-center">
         <LoudspeakerIcon :size="20"></LoudspeakerIcon>
       </div>
-      <p class="pl-2" style="font-family: var(--font-display)">17: 31</p>
+      <p class="pl-2" style="font-family: var(--font-display)">
+        <slot name="time"></slot>
+      </p>
     </div>
   </div>
 </template>

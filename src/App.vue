@@ -23,6 +23,7 @@ import { WButton } from '@components/button'
 import { WAutocomplete, WSelectNative } from '@components/select'
 import { WInputV2 } from '@components/input'
 
+const tabState = ref(false)
 const barPercent = ref(30)
 const options = Array(20)
   .fill(null)
@@ -96,6 +97,13 @@ const menuItemGroups: WindowMenuGroup[] = [
 
 <template>
   <main style="padding: 12px; background-color: var(--desktop-bg-color); height: 100%">
+    <TabComponent
+      @click="tabState = !tabState"
+      :active="tabState"
+      icon="ms_dos"
+      label="Console"
+    ></TabComponent>
+
     <WindowMenu :menu-item-groups="menuItemGroups"></WindowMenu>
     <WindowComponent
       title="1 Properties"
@@ -126,15 +134,21 @@ const menuItemGroups: WindowMenuGroup[] = [
         </WindowBody>
       </template>
     </WindowComponent>
-
+    <WindowComponent title="MS-DOS Prompt">
+      <template #title-icon>
+        <TitlebarIcon icon="ms_dos"></TitlebarIcon>
+      </template>
+    </WindowComponent>
     <TaskbarComponent class="fixed bottom-0 left-0">
       <StartButton></StartButton>
       <TaskbarGroup>
-        <TabComponent label="Console"></TabComponent>
+        <TabComponent icon="ms_dos" label="Console"></TabComponent>
       </TaskbarGroup>
 
       <TaskbarDivider class="ml-auto"></TaskbarDivider>
-      <StatusBlock></StatusBlock>
+      <StatusBlock>
+        <template #time>17: 31</template>
+      </StatusBlock>
     </TaskbarComponent>
   </main>
 </template>
