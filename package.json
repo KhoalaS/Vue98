@@ -5,6 +5,12 @@
   "type": "module",
   "types": "./dist/index.es.d.ts",
   "module": "./dist/index.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/index.es.js",
+      "types": "./dist/index.es.d.ts"
+    }
+  },
   "style": "./dist/main.css",
   "files": [
     "dist",
