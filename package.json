@@ -1,6 +1,6 @@
 {
   "name": "vue-98",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "private": false,
   "type": "module",
   "types": "./dist/index.es.d.ts",
@@ -10,7 +10,8 @@
     ".": {
       "import": "./dist/index.es.js",
       "types": "./dist/index.es.d.ts"
-    }
+    },
+    "./style.css": "./dist/main.css"
   },
   "style": "./dist/main.css",
   "files": [
