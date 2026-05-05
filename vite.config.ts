@@ -22,13 +22,15 @@ export default defineConfig({
       fileName: (format) => `index.${format}.js`,
       cssFileName: 'main',
     },
-    rollupOptions: {
-      external: ['vue'],
+    rolldownOptions: {
+      external: ['vue', 'pinia'],
     },
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
+      '@components': fileURLToPath(new URL('./src/lib/components', import.meta.url)),
+      '@composables': fileURLToPath(new URL('./src/lib/composables', import.meta.url)),
+      '@assets': fileURLToPath(new URL('./src/lib/assets', import.meta.url)),
     },
   },
 })

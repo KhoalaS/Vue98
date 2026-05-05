@@ -1,10 +1,14 @@
 <script setup lang="ts">
+defineProps<{
+  disabled?: boolean
+}>()
+
 const emit = defineEmits<{
   click: []
 }>()
 </script>
 <template>
-  <button @click="emit('click')">
+  <button class="btn" :disabled="disabled" @click="emit('click')">
     <span class="label">
       <slot name="default"></slot>
     </span>
@@ -16,6 +20,11 @@ const emit = defineEmits<{
 </template>
 
 <style scoped>
+.btn:disabled {
+  color: var(--text-inactive);
+  cursor: default;
+}
+
 .dash {
   display: none;
   position: absolute;
@@ -28,7 +37,7 @@ button:focus > .dash {
   display: block;
 }
 
-button:active > .label {
+button:active:not(:disabled) > .label {
   position: relative;
   top: 1px;
   left: 1px;
@@ -79,7 +88,6 @@ button:active > .label {
     black 2px
   );
 }
-
 .dash.bottom::before {
   box-sizing: border-box;
   content: '';
@@ -112,9 +120,10 @@ button {
     inset 1px 1px white,
     inset -2px -2px var(--border-gray);
   cursor: pointer;
+  user-select: none;
 }
 
-button:active {
+button:active:not(:disabled) {
   box-shadow:
     inset 1px 1px black,
     inset -1px -1px black,

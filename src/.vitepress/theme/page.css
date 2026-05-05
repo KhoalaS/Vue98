@@ -1,0 +1,8 @@
+.grid-center {
+  display: grid;
+  place-items: center;
+}
+
+body {
+  zoom: 200%;
+}

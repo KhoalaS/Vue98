@@ -1,28 +1,19 @@
 <script setup lang="ts">
-import { useElementSize } from '@vueuse/core'
-import { computed, useTemplateRef } from 'vue'
+import { useTemplateRef } from 'vue'
+import { useProgressBar } from './useProgressBar'
 
-const { max = 100 } = defineProps<{
-  max?: number
+defineProps<{
   progressLabel: string
 }>()
-
+const progressBar = useTemplateRef('progress-bar')
 const model = defineModel<number>({
   default: 0,
 })
-
-const progressBar = useTemplateRef('progress-bar')
-const { width } = useElementSize(progressBar)
-
-const barCount = computed(() => {
-  const progress = Math.floor(width.value * (model.value / max))
-  return Math.floor(progress / 10) + 1
-})
-const labelId = crypto.randomUUID()
+const { barCount, labelId, max } = useProgressBar(progressBar, model)
 </script>
 <template>
   <div>
-    <span :id="labelId">{{ progressLabel }}</span>
+    <span class="text-sm" :id="labelId">{{ progressLabel }}</span>
     <div
       :aria-labelledby="labelId"
       role="progressbar"
@@ -43,7 +34,7 @@ const labelId = crypto.randomUUID()
 <style scoped>
 .inv-border {
   box-shadow:
-    inset -1px -1px #fff,
+    inset -1px -1px var(--border-white),
     inset 1px 1px #7f7f7f;
 }
 </style>

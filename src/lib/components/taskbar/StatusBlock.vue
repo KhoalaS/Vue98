@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import LoudspeakerIcon from '../icons/LoudspeakerIcon.vue'
+import { LoudspeakerIcon } from '@components/icons'
 </script>
 <template>
   <div class="status-bar">
@@ -7,7 +7,9 @@ import LoudspeakerIcon from '../icons/LoudspeakerIcon.vue'
       <div class="flex items-center">
         <LoudspeakerIcon :size="20"></LoudspeakerIcon>
       </div>
-      <p class="pl-2" style="font-family: var(--font-display)">17: 31</p>
+      <p class="pl-2" style="font-family: var(--font-display)">
+        <slot name="time"></slot>
+      </p>
     </div>
   </div>
 </template>

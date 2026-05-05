@@ -1,6 +1,6 @@
 <script setup lang="ts" generic="T extends { id: string; name: string }">
 import { ref, useTemplateRef } from 'vue'
-import WInput from '../input/WInput.vue'
+import { WInput } from '@components/input'
 import WSelectButton from './WSelectButton.vue'
 import { onKeyStroke } from '@vueuse/core'
 
@@ -93,7 +93,7 @@ function handleClickSelection() {
       :id="listId"
       role="combobox"
       v-show="showSelection"
-      class="absolute overflow-y-auto top-[21px] z-20 max-h-[167px] w-full bg-white border-[1px] border-black"
+      class="absolute overflow-y-auto top-[21px] z-20 max-h-[167px] w-full bg-white border border-black"
     >
       <option
         class="text-sm px-0.5"

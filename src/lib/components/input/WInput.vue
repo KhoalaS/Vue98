@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import { useTemplateRef, watch } from 'vue'
 
+// Legacy component thats needed in another project
+
 const props = defineProps<{
   value?: string | number | boolean
   id?: string

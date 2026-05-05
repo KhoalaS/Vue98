@@ -1,7 +1,7 @@
 {
   "name": "vue-98",
-  "version": "0.0.0",
-  "private": true,
+  "version": "0.0.2",
+  "private": false,
   "type": "module",
   "types": "./dist/index.es.d.ts",
   "module": "./dist/index.es.js",
@@ -14,6 +14,7 @@
   },
   "style": "./dist/main.css",
   "files": [
+    "src",
     "dist",
     "README.md"
   ],
@@ -27,38 +28,45 @@
     "lint:oxlint": "oxlint . --fix -D correctness --ignore-path .gitignore",
     "lint:eslint": "eslint . --fix",
     "lint": "run-s lint:*",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "docs:dev": "vitepress dev src",
+    "docs:build": "vitepress build src",
+    "docs:preview": "vitepress preview src"
+  },
+  "peerDependencies": {
+    "pinia": "^3.0.4",
+    "vue": "^3.5.30"
   },
   "dependencies": {
-    "@tailwindcss/vite": "^4.1.18",
-    "@vueuse/core": "^14.2.0",
-    "tailwindcss": "^4.1.18",
-    "vue": "^3.5.27"
+    "@tailwindcss/vite": "^4.2.4",
+    "@vueuse/core": "^14.2.1",
+    "tailwindcss": "^4.2.4"
   },
   "devDependencies": {
-    "@tsconfig/node22": "^22.0.2",
-    "@types/jsdom": "^21.1.7",
-    "@types/node": "^22.15.32",
-    "@vitejs/plugin-vue": "^6.0.4",
-    "@vitest/eslint-plugin": "^1.6.6",
+    "@tsconfig/node22": "^22.0.5",
+    "@types/jsdom": "^28.0.0",
+    "@types/node": "^22.19.15",
+    "@vitejs/plugin-vue": "^6.0.5",
+    "@vitest/eslint-plugin": "^1.6.12",
     "@vue/eslint-config-prettier": "^10.2.0",
-    "@vue/eslint-config-typescript": "^14.6.0",
+    "@vue/eslint-config-typescript": "^14.7.0",
     "@vue/test-utils": "^2.4.6",
-    "@vue/tsconfig": "^0.8.1",
-    "eslint": "^9.29.0",
-    "eslint-plugin-oxlint": "~1.1.0",
-    "eslint-plugin-vue": "~10.2.0",
-    "jiti": "^2.4.2",
-    "jsdom": "^26.1.0",
+    "@vue/tsconfig": "^0.9.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-oxlint": "~1.56.0",
+    "eslint-plugin-vue": "~10.8.0",
+    "jiti": "^2.6.1",
+    "jsdom": "^29.0.0",
     "npm-run-all2": "^8.0.4",
-    "oxlint": "~1.1.0",
+    "oxlint": "~1.56.0",
     "prettier": "3.8.1",
-    "typescript": "~5.8.0",
-    "vite": "npm:rolldown-vite@latest",
-    "vite-plugin-vue-devtools": "^7.7.7",
-    "vitest": "^4.0.18",
-    "vue-tsc": "^3.2.4",
-    "vite-plugin-dts": "^4.5.4"
+    "typescript": "~5.8.3",
+    "vite": "^8.0.10",
+    "vite-plugin-dts": "^4.5.4",
+    "vite-plugin-vue-devtools": "^8.1.0",
+    "vitepress": "2.0.0-alpha.17",
+    "vitest": "^4.1.0",
+    "vue-tsc": "^3.2.5"
   },
   "packageManager": "pnpm@11.0.0-dev.1005+sha512.91f84a392eea348ea4852a182912d2520273a4336f933b78cc44bc931eb999923c097e9433a9b355adc1f725725ea99082fc9f032a559df832632e764c92c798"
 }

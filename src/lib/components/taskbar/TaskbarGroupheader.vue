@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
   <div class="flex items-center h-full">
-    <div class="thingy h-full w-[3px]"></div>
+    <div class="thingy h-full w-0.75"></div>
   </div>
 </template>
 <style scoped>
